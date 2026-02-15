@@ -1,13 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Euro, Check, Phone, Mail, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 import SEO from '../components/SEO';
-
-type PageType = 'home' | 'services' | 'contact' | 'blog' | 'blog-post' | 'pricing';
-
-interface PricingProps {
-  onNavigate: (page: PageType, slug?: string) => void;
-}
 
 interface VehicleCategory {
   id: string;
@@ -27,7 +22,7 @@ interface PricingOption {
   includes: string[] | null;
 }
 
-export default function Pricing({ onNavigate }: PricingProps) {
+export default function Pricing() {
   const [categories, setCategories] = useState<VehicleCategory[]>([]);
   const [pricingOptions, setPricingOptions] = useState<PricingOption[]>([]);
   const [loading, setLoading] = useState(true);
@@ -242,14 +237,14 @@ export default function Pricing({ onNavigate }: PricingProps) {
                 Pour un devis personnalisé et détaillé, contactez-nous !
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button
-                  onClick={() => onNavigate('contact')}
+                <Link
+                  to="/contact"
                   className="bg-black text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-800 transition-all inline-flex items-center justify-center space-x-2"
                 >
                   <Mail className="h-5 w-5" />
                   <span>Demander un devis</span>
                   <ArrowRight className="h-5 w-5" />
-                </button>
+                </Link>
                 <a
                   href="tel:+32123456789"
                   className="bg-white text-black px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-100 transition-all inline-flex items-center justify-center space-x-2"

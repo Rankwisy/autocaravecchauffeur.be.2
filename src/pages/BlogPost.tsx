@@ -1,26 +1,24 @@
 import { useState, useEffect } from 'react';
 import { Calendar, Tag, ArrowLeft, Clock } from 'lucide-react';
+import { Link, useParams } from 'react-router-dom';
 import SEO from '../components/SEO';
 import { fetchPostBySlug, BlogPost as BlogPostType } from '../lib/supabase';
 
-interface BlogPostProps {
-  slug: string;
-  onNavigate: (page: 'home' | 'services' | 'contact' | 'blog' | 'blog-post', slug?: string) => void;
-}
-
-export default function BlogPost({ slug, onNavigate }: BlogPostProps) {
+export default function BlogPost() {
+  const { slug } = useParams<{ slug: string }>();
   const [post, setPost] = useState<BlogPostType | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    loadPost();
+    if (slug) loadPost(slug);
+    else setLoading(false);
   }, [slug]);
 
-  const loadPost = async () => {
+  const loadPost = async (postSlug: string) => {
     setLoading(true);
     setError(false);
-    const data = await fetchPostBySlug(slug);
+    const data = await fetchPostBySlug(postSlug);
     if (data) {
       setPost(data);
     } else {
@@ -132,6 +130,20 @@ export default function BlogPost({ slug, onNavigate }: BlogPostProps) {
     });
   };
 
+  if (!slug) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Article non trouvé</h1>
+          <Link to="/blog" className="bg-lime-400 text-black px-8 py-3 rounded-lg font-bold hover:bg-lime-300 inline-flex items-center space-x-2 mx-auto">
+            <ArrowLeft className="h-5 w-5" />
+            <span>Retour au blog</span>
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
@@ -148,13 +160,13 @@ export default function BlogPost({ slug, onNavigate }: BlogPostProps) {
           <p className="text-xl text-gray-600 mb-8">
             L'article que vous recherchez n'existe pas ou n'est plus disponible.
           </p>
-          <button
-            onClick={() => onNavigate('blog')}
+          <Link
+            to="/blog"
             className="bg-lime-400 text-black px-8 py-3 rounded-lg font-bold hover:bg-lime-300 transition-all inline-flex items-center space-x-2"
           >
             <ArrowLeft className="h-5 w-5" />
             <span>Retour au blog</span>
-          </button>
+          </Link>
         </div>
       </div>
     );
@@ -184,13 +196,13 @@ export default function BlogPost({ slug, onNavigate }: BlogPostProps) {
       />
       <section className="bg-gradient-to-br from-black via-gray-900 to-black text-white py-12">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <button
-            onClick={() => onNavigate('blog')}
+          <Link
+            to="/blog"
             className="inline-flex items-center space-x-2 text-lime-400 hover:text-lime-300 transition-colors mb-8 group"
           >
             <ArrowLeft className="h-5 w-5 group-hover:-translate-x-1 transition-transform" />
             <span className="font-semibold">Retour au blog</span>
-          </button>
+          </Link>
 
           <div className="flex flex-wrap items-center gap-4 text-sm text-gray-300 mb-6">
             <div className="flex items-center space-x-2">
@@ -259,12 +271,12 @@ export default function BlogPost({ slug, onNavigate }: BlogPostProps) {
             <p className="text-xl text-gray-800 mb-8">
               Contactez-nous pour un devis personnalisé et sans engagement
             </p>
-            <button
-              onClick={() => onNavigate('contact')}
-              className="bg-black text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-800 transition-all transform hover:scale-105 shadow-lg"
+            <Link
+              to="/contact"
+              className="bg-black text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-800 transition-all transform hover:scale-105 shadow-lg inline-block"
             >
               Demander un devis
-            </button>
+            </Link>
           </div>
         </div>
       </section>

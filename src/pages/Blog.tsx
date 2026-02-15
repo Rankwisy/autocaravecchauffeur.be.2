@@ -1,13 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Calendar, Tag, ArrowRight, Search } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { fetchPublishedPosts, fetchCategories, fetchPostsByCategory, BlogPost, BlogCategory } from '../lib/supabase';
 import SEO from '../components/SEO';
 
-interface BlogProps {
-  onNavigate: (page: 'home' | 'services' | 'contact' | 'blog' | 'blog-post', slug?: string) => void;
-}
-
-export default function Blog({ onNavigate }: BlogProps) {
+export default function Blog() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [categories, setCategories] = useState<BlogCategory[]>([]);
   const [loading, setLoading] = useState(true);
@@ -145,11 +142,12 @@ export default function Blog({ onNavigate }: BlogProps) {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredPosts.map((post) => (
-                <article
+                <Link
                   key={post.id}
-                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all transform hover:-translate-y-2 group cursor-pointer"
-                  onClick={() => onNavigate('blog-post', post.slug)}
+                  to={`/blog/${post.slug}`}
+                  className="block bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all transform hover:-translate-y-2 group cursor-pointer"
                 >
+                  <article>
                   {post.featured_image_url && (
                     <div className="h-56 overflow-hidden">
                       <img
@@ -176,12 +174,13 @@ export default function Blog({ onNavigate }: BlogProps) {
                     <p className="text-gray-600 mb-4 leading-relaxed line-clamp-3">
                       {post.excerpt}
                     </p>
-                    <button className="inline-flex items-center space-x-2 text-lime-600 font-semibold group-hover:text-lime-700">
+                    <span className="inline-flex items-center space-x-2 text-lime-600 font-semibold group-hover:text-lime-700">
                       <span>Lire la suite</span>
                       <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                    </button>
+                    </span>
                   </div>
-                </article>
+                  </article>
+                </Link>
               ))}
             </div>
           )}

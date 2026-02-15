@@ -1,4 +1,5 @@
 import { Mail, MapPin, Clock } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { WhatsAppLink } from './WhatsAppWidget';
 
 export default function Footer() {
@@ -63,11 +64,11 @@ export default function Footer() {
           <div className="text-center text-sm text-gray-500">
             <nav aria-label="Footer navigation">
               <ul className="flex flex-wrap justify-center space-x-4">
-                <li><a href="/" className="hover:text-lime-400 transition-colors">Accueil</a></li>
-                <li><a href="/services" className="hover:text-lime-400 transition-colors">Services</a></li>
-                <li><a href="/tarifs" className="hover:text-lime-400 transition-colors">Tarifs</a></li>
-                <li><a href="/blog" className="hover:text-lime-400 transition-colors">Blog</a></li>
-                <li><a href="/contact" className="hover:text-lime-400 transition-colors">Contact</a></li>
+                <li><Link to="/" className="hover:text-lime-400 transition-colors">Accueil</Link></li>
+                <li><Link to="/services" className="hover:text-lime-400 transition-colors">Services</Link></li>
+                <li><Link to="/tarifs" className="hover:text-lime-400 transition-colors">Tarifs</Link></li>
+                <li><Link to="/blog" className="hover:text-lime-400 transition-colors">Blog</Link></li>
+                <li><Link to="/contact" className="hover:text-lime-400 transition-colors">Contact</Link></li>
               </ul>
             </nav>
           </div>

@@ -1,13 +1,8 @@
 import { Home, ArrowRight, Search, MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 
-type PageType = 'home' | 'services' | 'contact' | 'blog' | 'blog-post' | 'pricing';
-
-interface NotFoundProps {
-  onNavigate: (page: PageType) => void;
-}
-
-export default function NotFound({ onNavigate }: NotFoundProps) {
+export default function NotFound() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -41,32 +36,32 @@ export default function NotFound({ onNavigate }: NotFoundProps) {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <button
-              onClick={() => onNavigate('home')}
-              className="bg-lime-400 text-black p-6 rounded-xl hover:bg-lime-300 transition-all group"
+            <Link
+              to="/"
+              className="bg-lime-400 text-black p-6 rounded-xl hover:bg-lime-300 transition-all group block"
             >
               <Home className="h-8 w-8 mx-auto mb-3 group-hover:scale-110 transition-transform" />
               <h3 className="font-bold mb-2">Accueil</h3>
               <p className="text-sm">Retour à la page d'accueil</p>
-            </button>
+            </Link>
 
-            <button
-              onClick={() => onNavigate('services')}
-              className="bg-white/10 backdrop-blur-sm text-white p-6 rounded-xl hover:bg-white/20 transition-all group"
+            <Link
+              to="/services"
+              className="bg-white/10 backdrop-blur-sm text-white p-6 rounded-xl hover:bg-white/20 transition-all group block"
             >
               <MapPin className="h-8 w-8 mx-auto mb-3 text-lime-400 group-hover:scale-110 transition-transform" />
               <h3 className="font-bold mb-2">Nos Services</h3>
               <p className="text-sm text-gray-300">Découvrez nos offres</p>
-            </button>
+            </Link>
 
-            <button
-              onClick={() => onNavigate('contact')}
-              className="bg-white/10 backdrop-blur-sm text-white p-6 rounded-xl hover:bg-white/20 transition-all group"
+            <Link
+              to="/contact"
+              className="bg-white/10 backdrop-blur-sm text-white p-6 rounded-xl hover:bg-white/20 transition-all group block"
             >
               <ArrowRight className="h-8 w-8 mx-auto mb-3 text-lime-400 group-hover:scale-110 transition-transform" />
               <h3 className="font-bold mb-2">Contactez-nous</h3>
               <p className="text-sm text-gray-300">Demandez un devis</p>
-            </button>
+            </Link>
           </div>
 
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8">
@@ -74,13 +69,13 @@ export default function NotFound({ onNavigate }: NotFoundProps) {
             <p className="text-gray-300 mb-4">
               Notre équipe est disponible 7j/7 et 24h/24 pour répondre à vos questions et vous guider.
             </p>
-            <button
-              onClick={() => onNavigate('contact')}
+            <Link
+              to="/contact"
               className="bg-lime-400 text-black px-8 py-3 rounded-lg font-bold hover:bg-lime-300 transition-all inline-flex items-center space-x-2"
             >
               <span>Nous contacter</span>
               <ArrowRight className="h-5 w-5" />
-            </button>
+            </Link>
           </div>
         </div>
       </section>

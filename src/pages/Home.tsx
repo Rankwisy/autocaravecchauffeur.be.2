@@ -1,13 +1,8 @@
 import { Shield, Users, Clock, Award, ArrowRight, CheckCircle, Star, Quote, Bus } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 
-type PageType = 'home' | 'services' | 'contact' | 'blog' | 'blog-post';
-
-interface HomeProps {
-  onNavigate: (page: PageType, slug?: string) => void;
-}
-
-export default function Home({ onNavigate }: HomeProps) {
+export default function Home() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "TransportationService",
@@ -82,13 +77,13 @@ export default function Home({ onNavigate }: HomeProps) {
             <p className="text-xl md:text-2xl mb-10 text-gray-300 drop-shadow-lg">
               LOUER UN AUTOCAR HAUT DE GAMME AVEC CHAUFFEUR
             </p>
-            <button
-              onClick={() => onNavigate('contact')}
+            <Link
+              to="/contact"
               className="bg-lime-400 text-black px-10 py-4 rounded-lg text-lg font-bold hover:bg-lime-300 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl inline-flex items-center space-x-2"
             >
               <span>Demander un devis</span>
               <ArrowRight className="h-5 w-5" />
-            </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -251,20 +246,20 @@ export default function Home({ onNavigate }: HomeProps) {
               </p>
 
               <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-                <button
-                  onClick={() => onNavigate('services')}
+                <Link
+                  to="/services"
                   className="bg-white text-black px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-100 transition-all inline-flex items-center justify-center space-x-2"
                 >
                   <span>Découvrir nos services</span>
                   <ArrowRight className="h-5 w-5" />
-                </button>
-                <button
-                  onClick={() => onNavigate('contact')}
+                </Link>
+                <Link
+                  to="/contact"
                   className="bg-lime-400 text-black px-8 py-4 rounded-lg text-lg font-bold hover:bg-lime-300 transition-all inline-flex items-center justify-center space-x-2"
                 >
                   <span>Nous contacter</span>
                   <ArrowRight className="h-5 w-5" />
-                </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -422,13 +417,13 @@ export default function Home({ onNavigate }: HomeProps) {
           </div>
 
           <div className="text-center mt-12">
-            <button
-              onClick={() => onNavigate('contact')}
+            <Link
+              to="/contact"
               className="bg-black text-white px-10 py-4 rounded-lg text-lg font-bold hover:bg-gray-800 transition-all inline-flex items-center space-x-2"
             >
               <span>Demander un devis pour votre flotte</span>
               <ArrowRight className="h-5 w-5" />
-            </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -586,13 +581,13 @@ export default function Home({ onNavigate }: HomeProps) {
           </div>
 
           <div className="text-center mt-12">
-            <button
-              onClick={() => onNavigate('contact')}
+            <Link
+              to="/contact"
               className="bg-black text-white px-10 py-4 rounded-lg text-lg font-bold hover:bg-gray-800 transition-all inline-flex items-center space-x-2"
             >
               <span>Rejoignez nos clients satisfaits</span>
               <ArrowRight className="h-5 w-5" />
-            </button>
+            </Link>
           </div>
         </div>
       </section>

@@ -1,13 +1,8 @@
 import { Plane, MapPin, PartyPopper, GraduationCap, Wifi, Monitor, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 
-type PageType = 'home' | 'services' | 'contact' | 'blog' | 'blog-post';
-
-interface ServicesProps {
-  onNavigate: (page: PageType, slug?: string) => void;
-}
-
-export default function Services({ onNavigate }: ServicesProps) {
+export default function Services() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -246,13 +241,13 @@ export default function Services({ onNavigate }: ServicesProps) {
           <p className="text-lg text-gray-700 mb-10">
             Demandez votre devis personnalisé dès maintenant. Nous vous répondons sous 48h !
           </p>
-          <button
-            onClick={() => onNavigate('contact')}
+          <Link
+            to="/contact"
             className="bg-lime-400 text-black px-10 py-4 rounded-lg text-lg font-bold hover:bg-lime-300 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl inline-flex items-center space-x-2"
           >
             <span>Demander un devis</span>
             <ArrowRight className="h-5 w-5" />
-          </button>
+          </Link>
         </div>
       </section>
     </div>
