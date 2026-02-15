@@ -50,8 +50,8 @@ export default function NotFound() {
               className="bg-white/10 backdrop-blur-sm text-white p-6 rounded-xl hover:bg-white/20 transition-all group block"
             >
               <MapPin className="h-8 w-8 mx-auto mb-3 text-lime-400 group-hover:scale-110 transition-transform" />
-              <h3 className="font-bold mb-2">Nos Services</h3>
-              <p className="text-sm text-gray-300">Découvrez nos offres</p>
+              <h3 className="font-bold mb-2">Services autocar et minibus Bruxelles</h3>
+              <p className="text-sm text-gray-300">Voir nos formules avec chauffeur</p>
             </Link>
 
             <Link
@@ -59,8 +59,8 @@ export default function NotFound() {
               className="bg-white/10 backdrop-blur-sm text-white p-6 rounded-xl hover:bg-white/20 transition-all group block"
             >
               <ArrowRight className="h-8 w-8 mx-auto mb-3 text-lime-400 group-hover:scale-110 transition-transform" />
-              <h3 className="font-bold mb-2">Contactez-nous</h3>
-              <p className="text-sm text-gray-300">Demandez un devis</p>
+              <h3 className="font-bold mb-2">Devis gratuit</h3>
+              <p className="text-sm text-gray-300">Demander un devis — sans engagement</p>
             </Link>
           </div>
 
@@ -73,7 +73,7 @@ export default function NotFound() {
               to="/contact"
               className="bg-lime-400 text-black px-8 py-3 rounded-lg font-bold hover:bg-lime-300 transition-all inline-flex items-center space-x-2"
             >
-              <span>Nous contacter</span>
+              <span>Demander un devis gratuit — sans engagement</span>
               <ArrowRight className="h-5 w-5" />
             </Link>
           </div>

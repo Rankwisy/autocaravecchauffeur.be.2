@@ -76,13 +76,13 @@ export default function Services() {
                 Excursions en autocar au départ de Bruxelles
               </h2>
               <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                Transport de groupe avec chauffeur pour une excursion en Belgique ou en Europe. Notre société <strong>basée à Bruxelles</strong> met à votre disposition une flotte d'autocars conformes <strong>LEZ</strong> (zone basse émission).
+                Transport de groupe avec <strong>chauffeur professionnel</strong> pour une excursion en Belgique ou en Europe. Forfait journée ou trajet, réservation simple. Notre société <strong>basée à Bruxelles</strong> met à votre disposition une flotte d'autocars conformes <strong>LEZ</strong> (zone basse émission).
               </p>
               <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                Nos autocars au départ de Bruxelles sont équipés de WiFi, écran TV, lecteur CD et climatisation. Idéaux pour <strong>entreprises</strong>, <strong>écoles</strong> et <strong>événements</strong>.
+                Nos autocars au départ de Bruxelles sont équipés de WiFi, écran TV, lecteur CD et climatisation. Capacité adaptée à votre groupe. Idéaux pour <strong>entreprises</strong>, <strong>écoles</strong> et <strong>événements</strong>. Que vous soyez à Bruxelles-Ville, Schaerbeek, Ixelles, Anderlecht, Uccle, Woluwe ou ailleurs en Région bruxelloise, nous assurons la prise en charge.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed mb-8">
-                Chauffeurs expérimentés pour vous guider. <strong>Devis gratuit</strong> sous 48h. Équipe <strong>disponible</strong> 7j/7 pour réserver votre autocar avec chauffeur à Bruxelles.
+                Chauffeurs expérimentés pour vous guider. <strong>Devis gratuit</strong> sous 48h, sans engagement. Équipe <strong>disponible</strong> 7j/7 pour réserver votre autocar avec chauffeur à Bruxelles.
               </p>
 
               <div className="bg-lime-50 border-l-4 border-lime-400 p-6 rounded-r-lg">
@@ -157,10 +157,10 @@ export default function Services() {
                 Transfert autocar avec chauffeur au départ de Bruxelles
               </h2>
               <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                Transferts aéroport et gare depuis ou vers Bruxelles. Autocar ou minibus <strong>avec chauffeur</strong>, <strong>disponible</strong> 7j/7. Idéal pour entreprises, écoles et groupes d'événements.
+                Transferts aéroport et gare depuis ou vers Bruxelles. Navette et trajet sur mesure en autocar ou minibus <strong>avec chauffeur</strong>, <strong>disponible</strong> 7j/7. Idéal pour entreprises, écoles et groupes d'événements.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed mb-8">
-                Location d'autocar ou minibus avec chauffeur au départ de Bruxelles : efficacité et ponctualité. <strong>Devis gratuit</strong> sous 48h.
+                Location d'autocar ou minibus avec chauffeur au départ de Bruxelles : efficacité et ponctualité. Réservation simple, <strong>devis gratuit</strong> sous 48h, sans engagement.
               </p>
 
               <div className="bg-lime-50 border-l-4 border-lime-400 p-6 rounded-r-lg">
@@ -229,13 +229,13 @@ export default function Services() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-6 text-gray-900">Devis gratuit — Autocar avec chauffeur à Bruxelles</h2>
           <p className="text-lg text-gray-700 mb-10">
-            Demandez votre devis personnalisé. Équipe disponible 7j/7, réponse sous 48h. Entreprises, écoles, événements.
+            Demandez votre devis personnalisé, sans engagement. Équipe disponible 7j/7, réponse sous 48h. Entreprises, écoles, événements.
           </p>
           <Link
             to="/contact"
             className="bg-lime-400 text-black px-10 py-4 rounded-lg text-lg font-bold hover:bg-lime-300 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl inline-flex items-center space-x-2"
           >
-            <span>Demander un devis</span>
+            <span>Demander un devis gratuit et sans engagement</span>
             <ArrowRight className="h-5 w-5" />
           </Link>
         </div>

@@ -90,7 +90,7 @@ export default function Contact() {
           <h1 className="text-5xl md:text-6xl font-bold mb-6">Contact & Devis — Autocar Bruxelles</h1>
           <div className="w-24 h-1 bg-lime-400 mx-auto mb-6"></div>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Devis gratuit pour autocar ou minibus avec chauffeur à Bruxelles. Équipe disponible 7j/7. Entreprises, écoles, événements.
+            Devis gratuit et sans engagement pour autocar ou minibus avec chauffeur à Bruxelles. Réponse sous 48h. Équipe disponible 7j/7. Entreprises, écoles, événements.
           </p>
         </div>
       </section>
@@ -150,7 +150,7 @@ export default function Contact() {
                   Besoin d'informations ou de renseignements sur nos prestations ou notre société ?
                 </h2>
                 <p className="text-lg text-gray-600">
-                  Vous pouvez nous contacter en utilisant le formulaire de contact ci-dessous
+                  Devis gratuit et sans engagement. Nous vous répondons sous 48h. Utilisez le formulaire ci-dessous ou contactez-nous par email / WhatsApp.
                 </p>
               </div>
 
@@ -306,7 +306,7 @@ export default function Contact() {
                 </button>
 
                 <p className="text-sm text-gray-500 text-center">
-                  * Champs obligatoires - Nous vous répondrons sous 48h
+                  * Champs obligatoires. Devis gratuit, sans engagement. Réponse sous 48h.
                 </p>
               </form>
               )}

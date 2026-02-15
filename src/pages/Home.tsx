@@ -75,13 +75,13 @@ export default function Home() {
               Votre Satisfaction dans l'absolu !
             </p>
             <p className="text-xl md:text-2xl mb-10 text-gray-300 drop-shadow-lg">
-              AUTOCAR AVEC CHAUFFEUR À BRUXELLES — DEVIS GRATUIT
+              AUTOCAR AVEC CHAUFFEUR À BRUXELLES — DEVIS GRATUIT, SANS ENGAGEMENT
             </p>
             <Link
               to="/contact"
               className="bg-lime-400 text-black px-10 py-4 rounded-lg text-lg font-bold hover:bg-lime-300 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl inline-flex items-center space-x-2"
             >
-              <span>Demander un devis</span>
+              <span>Demander un devis gratuit — sans engagement</span>
               <ArrowRight className="h-5 w-5" />
             </Link>
           </div>
@@ -94,7 +94,10 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">Qui sommes nous à Bruxelles ?</h2>
             <div className="w-24 h-1 bg-lime-400 mx-auto mb-8"></div>
             <p className="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
-              Autocaravecchauffeur est une compagnie <strong>basée à Bruxelles</strong>, spécialisée dans la location d'autocar et minibus <strong>avec chauffeur</strong>. Nous répondons aux besoins des <strong>entreprises</strong> (séminaires, congrès), des <strong>écoles</strong> (voyages scolaires, sorties) et des <strong>événements</strong> (mariages, séminaires, associations). Transport de groupe au départ de Bruxelles en Belgique et en Europe. <strong>Devis gratuit</strong>, équipe <strong>disponible</strong> 7j/7.
+              Autocaravecchauffeur est une compagnie <strong>basée à Bruxelles</strong>, spécialisée dans la <strong>location</strong> d'autocar et minibus <strong>avec chauffeur professionnel</strong>. Réservation, forfait à la journée ou au trajet, navette et transport de groupe : nous répondons aux besoins des <strong>entreprises</strong> (séminaires, congrès), des <strong>écoles</strong> (voyages scolaires, sorties) et des <strong>événements</strong> (mariages, séminaires, associations). Capacité de 2 à 63 passagers au départ de Bruxelles en Belgique et en Europe. <strong>Devis gratuit</strong>, équipe <strong>disponible</strong> 7j/7.
+            </p>
+            <p className="text-base text-gray-600 max-w-4xl mx-auto leading-relaxed mt-4">
+              Nous intervenons dans toute la Région de Bruxelles-Capitale : Bruxelles-Ville, Schaerbeek, Ixelles, Anderlecht, Saint-Gilles, Uccle, Woluwe-Saint-Pierre, Woluwe-Saint-Lambert, Evere, Jette, Molenbeek, Forest et les autres communes. Prise en charge à l'adresse de votre choix.
             </p>
           </div>
 
@@ -105,7 +108,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-bold mb-3 text-gray-900">Flotte complète disponible à Bruxelles et alentours</h3>
               <p className="text-gray-600 leading-relaxed">
-                16 véhicules (autocars et minibus) avec chauffeur au départ de Bruxelles, de 2 à 63 passagers. Confort optimal, véhicules conformes LEZ.
+                Flotte de 16 véhicules (autocars et minibus) avec chauffeur au départ de Bruxelles : capacité de 2 à 63 passagers. Réservation simple, forfait journée ou trajet, navette. Confort optimal, véhicules conformes LEZ.
               </p>
             </div>
 
@@ -133,9 +136,9 @@ export default function Home() {
               <div className="bg-black p-4 rounded-lg w-fit mb-6 group-hover:bg-lime-400 transition-colors">
                 <Clock className="h-8 w-8 text-lime-400 group-hover:text-black" />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900">Réponse rapide et devis en quelques minutes</h3>
+              <h3 className="text-xl font-bold mb-3 text-gray-900">Réponse rapide et devis sous 48h</h3>
               <p className="text-gray-600 leading-relaxed">
-                Équipe disponible 7j/7. Réponse à vos demandes de devis sous 48h avec un service sur-mesure pour Bruxelles et la Belgique.
+                Équipe disponible 7j/7. Réponse à vos demandes de devis sous 48h, sans engagement, avec un service sur-mesure pour Bruxelles et la Belgique.
               </p>
             </div>
           </div>
@@ -243,14 +246,14 @@ export default function Home() {
                   to="/services"
                   className="bg-white text-black px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-100 transition-all inline-flex items-center justify-center space-x-2"
                 >
-                  <span>Découvrir nos services</span>
+                  <span>Voir nos formules d'autocar et minibus avec chauffeur</span>
                   <ArrowRight className="h-5 w-5" />
                 </Link>
                 <Link
                   to="/contact"
                   className="bg-lime-400 text-black px-8 py-4 rounded-lg text-lg font-bold hover:bg-lime-300 transition-all inline-flex items-center justify-center space-x-2"
                 >
-                  <span>Nous contacter</span>
+                  <span>Demander un devis gratuit</span>
                   <ArrowRight className="h-5 w-5" />
                 </Link>
               </div>
@@ -582,7 +585,7 @@ export default function Home() {
               to="/contact"
               className="bg-black text-white px-10 py-4 rounded-lg text-lg font-bold hover:bg-gray-800 transition-all inline-flex items-center space-x-2"
             >
-              <span>Rejoignez nos clients satisfaits</span>
+              <span>Demander un devis gratuit — sans engagement</span>
               <ArrowRight className="h-5 w-5" />
             </Link>
           </div>

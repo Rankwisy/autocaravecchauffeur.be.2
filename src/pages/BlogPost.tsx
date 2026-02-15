@@ -191,7 +191,7 @@ export default function BlogPost() {
   return (
     <div>
       <SEO
-        title={seoTitle}
+        title={seoTitle.length > 60 ? seoTitle.slice(0, 57) + '…' : seoTitle}
         description={seoDescription}
         canonicalUrl={canonicalUrl}
         ogType="article"
@@ -279,7 +279,7 @@ export default function BlogPost() {
               to="/contact"
               className="bg-black text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-800 transition-all transform hover:scale-105 shadow-lg inline-block"
             >
-              Demander un devis
+              Demander un devis gratuit — sans engagement
             </Link>
           </div>
         </div>

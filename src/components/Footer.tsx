@@ -65,10 +65,10 @@ export default function Footer() {
             <nav aria-label="Footer navigation">
               <ul className="flex flex-wrap justify-center space-x-4">
                 <li><Link to="/" className="hover:text-lime-400 transition-colors">Accueil</Link></li>
-                <li><Link to="/services" className="hover:text-lime-400 transition-colors">Services</Link></li>
-                <li><Link to="/tarifs" className="hover:text-lime-400 transition-colors">Tarifs</Link></li>
+                <li><Link to="/services" className="hover:text-lime-400 transition-colors">Services autocar Bruxelles</Link></li>
+                <li><Link to="/tarifs" className="hover:text-lime-400 transition-colors">Tarifs et prix autocar Bruxelles</Link></li>
                 <li><Link to="/blog" className="hover:text-lime-400 transition-colors">Blog</Link></li>
-                <li><Link to="/contact" className="hover:text-lime-400 transition-colors">Contact</Link></li>
+                <li><Link to="/contact" className="hover:text-lime-400 transition-colors">Devis gratuit — Contact</Link></li>
               </ul>
             </nav>
           </div>

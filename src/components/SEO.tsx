@@ -7,7 +7,7 @@ interface SEOProps {
   ogType?: string;
   ogImage?: string;
   keywords?: string;
-  structuredData?: object;
+  structuredData?: object | object[];
 }
 
 export default function SEO({
@@ -72,7 +72,8 @@ export default function SEO({
         scriptTag.setAttribute('type', 'application/ld+json');
         document.head.appendChild(scriptTag);
       }
-      scriptTag.textContent = JSON.stringify(structuredData);
+      const payload = Array.isArray(structuredData) ? structuredData : [structuredData];
+      scriptTag.textContent = JSON.stringify(payload.length === 1 ? payload[0] : payload);
     }
 
     return () => {

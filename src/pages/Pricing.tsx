@@ -1,8 +1,31 @@
 import { useState, useEffect } from 'react';
-import { Euro, Check, Phone, Mail, ArrowRight } from 'lucide-react';
+import { Euro, Check, Phone, Mail, ArrowRight, HelpCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 import SEO from '../components/SEO';
+
+const FAQ_ITEMS = [
+  {
+    q: 'Quel est le prix d\'un autocar avec chauffeur à Bruxelles ?',
+    a: 'Les tarifs varient selon la capacité (minibus 2-19 places, autocar jusqu\'à 63 places), le type de trajet (à la journée, transfert, forfait) et la destination. Nos prix sont indiqués à partir de quelques centaines d\'euros pour une journée. Demandez un devis gratuit et sans engagement pour un prix précis adapté à votre trajet au départ de Bruxelles.'
+  },
+  {
+    q: 'Comment obtenir un devis gratuit pour un autocar à Bruxelles ?',
+    a: 'Remplissez notre formulaire de contact ou appelez-nous. Nous vous envoyons un devis personnalisé sous 48h, gratuit et sans engagement. Précisez votre date, le nombre de passagers, le type de trajet (excursion, transfert aéroport, événement) et votre lieu de prise en charge à Bruxelles ou en périphérie.'
+  },
+  {
+    q: 'Que comprend le tarif de location d\'autocar avec chauffeur ?',
+    a: 'Le prix inclut en général le véhicule avec chauffeur professionnel, le carburant, les péages, l\'assurance et les frais de route. Les options (WiFi, climatisation) sont précisées sur chaque formule. Des suppléments peuvent s\'appliquer pour parkings, hébergement chauffeur sur longs trajets ou services additionnels.'
+  },
+  {
+    q: 'Puis-je réserver un autocar sans engagement ?',
+    a: 'Oui. La demande de devis est gratuite et sans engagement. Une fois notre proposition acceptée, la réservation peut être confirmée selon nos conditions. Notre équipe est disponible 7j/7 pour toute question avant de vous engager.'
+  },
+  {
+    q: 'Desservez-vous toutes les communes de Bruxelles ?',
+    a: 'Oui. Nous intervenons dans toute la Région de Bruxelles-Capitale : Bruxelles-Ville, Schaerbeek, Ixelles, Anderlecht, Saint-Gilles, Uccle, Woluwe-Saint-Pierre, Woluwe-Saint-Lambert, Evere, Jette, Molenbeek, Forest, et les autres communes. Prise en charge à l\'adresse de votre choix.'
+  }
+];
 
 interface VehicleCategory {
   id: string;
@@ -30,12 +53,22 @@ export default function Pricing() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "PriceSpecification",
-    "description": "Tarifs de location d'autocar et minibus avec chauffeur",
+    "description": "Tarifs de location d'autocar et minibus avec chauffeur à Bruxelles",
     "priceCurrency": "EUR",
     "provider": {
       "@type": "TransportationService",
       "name": "Autocaravecchauffeur"
     }
+  };
+
+  const faqStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": FAQ_ITEMS.map(({ q, a }) => ({
+      "@type": "Question",
+      "name": q,
+      "acceptedAnswer": { "@type": "Answer", "text": a }
+    }))
   };
 
   useEffect(() => {
@@ -78,7 +111,7 @@ export default function Pricing() {
           title="Tarifs Autocar Bruxelles | Devis Gratuit Minibus & Autocar"
           description="Prix location autocar et minibus avec chauffeur à Bruxelles. 2 à 63 places. Devis personnalisé gratuit sous 48h. Réservation simple."
           canonicalUrl="https://autocaravecchauffeur.be/tarifs"
-          structuredData={structuredData}
+          structuredData={[structuredData, faqStructuredData]}
         />
         <div className="text-center">
           <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-lime-400 mx-auto mb-4"></div>
@@ -94,7 +127,7 @@ export default function Pricing() {
         title="Tarifs Autocar Bruxelles | Devis Gratuit Minibus & Autocar"
         description="Prix location autocar et minibus avec chauffeur à Bruxelles. 2 à 63 places. Devis personnalisé gratuit sous 48h. Réservation simple."
         canonicalUrl="https://autocaravecchauffeur.be/tarifs"
-        structuredData={structuredData}
+        structuredData={[structuredData, faqStructuredData]}
       />
       <section className="bg-gradient-to-br from-black via-gray-900 to-black text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -118,7 +151,7 @@ export default function Pricing() {
               Tarifs par Catégorie — Autocar Bruxelles
             </h2>
             <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-              Tarifs avec chauffeur pour vos trajets au départ de Bruxelles. Prix indicatifs ; devis personnalisé gratuit pour entreprises, écoles et événements. Équipe disponible 7j/7.
+              Tarifs avec chauffeur pour vos trajets au départ de Bruxelles. Prix indicatifs ; devis personnalisé gratuit, sans engagement, pour entreprises, écoles et événements. Réservation simple, forfait journée ou trajet. Nous desservons toutes les communes : Bruxelles-Ville, Schaerbeek, Ixelles, Anderlecht, Uccle, Woluwe, Saint-Gilles, Evere. Équipe disponible 7j/7.
             </p>
           </div>
 
@@ -254,6 +287,36 @@ export default function Pricing() {
                 </a>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl font-bold mb-8 text-gray-900 text-center flex items-center justify-center gap-3">
+            <HelpCircle className="h-10 w-10 text-lime-500" />
+            Questions fréquentes — Prix et devis autocar Bruxelles
+          </h2>
+          <div className="space-y-6">
+            {FAQ_ITEMS.map((item, index) => (
+              <div key={index} className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                <h3 className="text-lg font-bold text-gray-900 px-6 py-4 bg-lime-50 border-b border-gray-200">
+                  {item.q}
+                </h3>
+                <p className="text-gray-700 leading-relaxed px-6 py-4">
+                  {item.a}
+                </p>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-10">
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 bg-lime-400 text-black px-6 py-3 rounded-lg font-bold hover:bg-lime-300"
+            >
+              <Mail className="h-5 w-5" />
+              Devis gratuit et sans engagement
+            </Link>
           </div>
         </div>
       </section>
