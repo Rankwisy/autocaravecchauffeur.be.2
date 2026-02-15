@@ -99,11 +99,11 @@ export default function Pricing() {
       <section className="bg-gradient-to-br from-black via-gray-900 to-black text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            Prix location autocar avec chauffeur Belgique
+            Tarifs Autocar avec Chauffeur à Bruxelles
           </h1>
           <div className="w-24 h-1 bg-lime-400 mx-auto mb-6"></div>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Découvrez nos tarifs transparents pour la location d'autocars et minibus avec chauffeur professionnel
+            Tarifs transparents pour autocar et minibus avec chauffeur au départ de Bruxelles. Devis gratuit, disponible pour entreprises, écoles et événements.
           </p>
         </div>
       </section>
@@ -115,10 +115,10 @@ export default function Pricing() {
               <Euro className="h-10 w-10 text-black" />
             </div>
             <h2 className="text-4xl font-bold mb-6 text-gray-900">
-              Nos Tarifs par Catégorie de Véhicule
+              Tarifs par Catégorie — Autocar Bruxelles
             </h2>
             <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-              Tous nos tarifs incluent un chauffeur professionnel et expérimenté. Les prix sont indicatifs et peuvent varier selon vos besoins spécifiques.
+              Tarifs avec chauffeur pour vos trajets au départ de Bruxelles. Prix indicatifs ; devis personnalisé gratuit pour entreprises, écoles et événements. Équipe disponible 7j/7.
             </p>
           </div>
 

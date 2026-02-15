@@ -191,7 +191,7 @@ export default function BlogPost() {
   return (
     <div>
       <SEO
-        title={seoTitle.length > 60 ? seoTitle.slice(0, 57) + '…' : seoTitle}
+        title={seoTitle}
         description={seoDescription}
         canonicalUrl={canonicalUrl}
         ogType="article"

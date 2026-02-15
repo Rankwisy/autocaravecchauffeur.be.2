@@ -20,7 +20,7 @@ Vous cherchez une **location d'autocar à Bruxelles** pour un déplacement de gr
 
 ## Pourquoi louer un autocar à Bruxelles ?
 
-Que ce soit pour un séminaire, un événement d'entreprise, une sortie associative ou un transfert groupe, l'autocar reste la solution la plus pratique et économique depuis Bruxelles. Nous proposons des véhicules de 2 à 63 places, tous équipés de climatisation et conformes aux normes en vigueur.
+Que ce soit pour une entreprise (séminaire, congrès), une école (sortie, voyage) ou un événement (mariage, anniversaire), l'autocar avec chauffeur au départ de Bruxelles reste la solution la plus pratique et économique. Nous proposons des véhicules de 2 à 63 places, équipés de climatisation et conformes à la zone basse émission (LEZ) de Bruxelles.
 
 Consultez [nos services de transport de groupe](https://autocaravecchauffeur.be/services) pour découvrir toutes nos formules. Vous pouvez aussi demander un [devis gratuit sur notre page tarifs](https://autocaravecchauffeur.be/tarifs) adapté à votre itinéraire.
 
@@ -30,7 +30,7 @@ Bruxelles est au cœur de l'Europe et constitue un point de départ parfait pour
 
 ## Réservez votre autocar au départ de Bruxelles
 
-Notre équipe est disponible 7j/7 pour vous conseiller et organiser votre transport. Contactez-nous pour une location d'autocar ou de minibus avec chauffeur à Bruxelles : devis personnalisé, réservation simple et service professionnel.`,
+Notre équipe est disponible 7j/7 pour votre devis et pour organiser votre transport. Contactez-nous pour une location d'autocar ou de minibus avec chauffeur à Bruxelles : devis gratuit, réservation simple. Entreprises, écoles, événements.`,
     featured_image_url: 'https://images.pexels.com/photos/1008155/pexels-photo-1008155.jpeg?auto=compress&cs=tinysrgb&w=1200',
     author: 'Autocaravecchauffeur',
     status: 'published',
@@ -50,9 +50,9 @@ Une **excursion en autocar au départ de Bruxelles** permet de découvrir la Bel
 
 ## Excursions populaires au départ de Bruxelles
 
-- Bruges, Gand, Anvers, Liège ou les Ardennes : nous adaptons l'itinéraire et le véhicule à votre effectif et à votre programme.
-- Sorties scolaires, voyages de clubs, séminaires et événements : notre [page services](https://autocaravecchauffeur.be/services) détaille les options (WiFi, climatisation, bagages).
-- Pour comparer les formules et obtenir un prix sur mesure, consultez notre [page tarifs](https://autocaravecchauffeur.be/tarifs) et demandez un devis gratuit.
+- Bruges, Gand, Anvers, Liège ou les Ardennes au départ de Bruxelles : nous adaptons l'itinéraire et le véhicule à votre effectif. Véhicules conformes LEZ.
+- Écoles (sorties, voyages), entreprises (séminaires) et événements : notre [page services](https://autocaravecchauffeur.be/services) détaille les options (WiFi, climatisation, bagages).
+- Devis gratuit : consultez notre [page tarifs](https://autocaravecchauffeur.be/tarifs). Équipe disponible 7j/7 pour réserver votre autocar avec chauffeur à Bruxelles.
 
 ## S'informer sur Bruxelles et la Belgique
 

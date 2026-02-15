@@ -12,12 +12,12 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4 text-lime-400">Autocaravecchauffeur</h3>
             <p className="text-gray-400 leading-relaxed">
-              Compagnie d'autocars haut-de-gamme à Bruxelles. Transport de groupe en Belgique et en Europe.
+              Location d'autocar et minibus avec chauffeur basée à Bruxelles. Entreprises, écoles, événements. Devis gratuit, disponible 7j/7. Transport de groupe en Belgique et en Europe.
             </p>
           </div>
 
           <div>
-            <h3 className="text-xl font-bold mb-4 text-lime-400">Contact</h3>
+            <h3 className="text-xl font-bold mb-4 text-lime-400">Contact et devis à Bruxelles</h3>
             <div className="space-y-3">
               <div className="flex items-start space-x-3">
                 <Mail className="h-5 w-5 text-lime-400 mt-0.5 flex-shrink-0" />
@@ -47,12 +47,12 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-xl font-bold mb-4 text-lime-400">Nos Services</h3>
+            <h3 className="text-xl font-bold mb-4 text-lime-400">Nos services de transport</h3>
             <ul className="space-y-2 text-gray-400">
-              <li>Excursions en Belgique et Europe</li>
-              <li>Transferts aéroports et gares</li>
-              <li>Transport pour événements</li>
-              <li>Voyages scolaires et groupes</li>
+              <li>Autocar avec chauffeur au départ de Bruxelles</li>
+              <li>Excursions, transferts aéroports et gares</li>
+              <li>Entreprises, écoles, événements</li>
+              <li>Véhicules conformes LEZ Bruxelles</li>
             </ul>
           </div>
         </div>

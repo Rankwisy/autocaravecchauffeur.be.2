@@ -45,7 +45,7 @@ export default function Header() {
             </div>
             <div>
               <h1 className="text-xl font-bold tracking-tight">Autocaravecchauffeur</h1>
-              <p className="text-xs text-gray-400">Transport de groupe à Bruxelles</p>
+              <p className="text-xs text-gray-400">Autocar avec chauffeur à Bruxelles</p>
             </div>
           </NavLink>
 

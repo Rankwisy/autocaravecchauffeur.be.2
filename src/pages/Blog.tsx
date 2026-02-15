@@ -76,10 +76,10 @@ export default function Blog() {
       />
       <section className="bg-gradient-to-br from-black via-gray-900 to-black text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">Notre Blog</h1>
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">Blog Autocar avec Chauffeur à Bruxelles</h1>
           <div className="w-24 h-1 bg-lime-400 mx-auto mb-6"></div>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Actualités, conseils et récits de voyage pour vos déplacements en autocar
+            Conseils et actualités : location d'autocar au départ de Bruxelles, entreprises, écoles, événements. Devis gratuit, équipe disponible.
           </p>
         </div>
       </section>

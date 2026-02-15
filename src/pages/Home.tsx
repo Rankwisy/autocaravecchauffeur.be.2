@@ -69,13 +69,13 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight drop-shadow-lg">
-              Autocaravecchauffeur
+              Autocar avec Chauffeur à Bruxelles – Location pour Groupes et Entreprises
             </h1>
             <p className="text-2xl md:text-3xl mb-4 text-lime-400 font-semibold drop-shadow-lg">
               Votre Satisfaction dans l'absolu !
             </p>
             <p className="text-xl md:text-2xl mb-10 text-gray-300 drop-shadow-lg">
-              LOUER UN AUTOCAR HAUT DE GAMME AVEC CHAUFFEUR
+              AUTOCAR AVEC CHAUFFEUR À BRUXELLES — DEVIS GRATUIT
             </p>
             <Link
               to="/contact"
@@ -91,13 +91,10 @@ export default function Home() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">Qui sommes nous ?</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">Qui sommes nous à Bruxelles ?</h2>
             <div className="w-24 h-1 bg-lime-400 mx-auto mb-8"></div>
             <p className="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
-              Autocaravecchauffeur est une compagnie d'autocars haut-de-gamme qui répondra à tous vos besoins
-              de transport de groupe en Bruxelles comme en Belgique pour les voyageurs des 4 coins du monde.
-              Les voyages et les transferts sont adaptés aussi bien pour les clientèles individuelles
-              (familles et couples) que pour les groupes (comités d'entreprise, associations et ….).
+              Autocaravecchauffeur est une compagnie <strong>basée à Bruxelles</strong>, spécialisée dans la location d'autocar et minibus <strong>avec chauffeur</strong>. Nous répondons aux besoins des <strong>entreprises</strong> (séminaires, congrès), des <strong>écoles</strong> (voyages scolaires, sorties) et des <strong>événements</strong> (mariages, séminaires, associations). Transport de groupe au départ de Bruxelles en Belgique et en Europe. <strong>Devis gratuit</strong>, équipe <strong>disponible</strong> 7j/7.
             </p>
           </div>
 
@@ -106,9 +103,9 @@ export default function Home() {
               <div className="bg-black p-4 rounded-lg w-fit mb-6 group-hover:bg-lime-400 transition-colors">
                 <Users className="h-8 w-8 text-lime-400 group-hover:text-black" />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900">Flotte complète</h3>
+              <h3 className="text-xl font-bold mb-3 text-gray-900">Flotte complète disponible à Bruxelles et alentours</h3>
               <p className="text-gray-600 leading-relaxed">
-                16 véhicules (autocars et minibus) pour transporter de 2 à 63 passagers dans un confort optimal.
+                16 véhicules (autocars et minibus) avec chauffeur au départ de Bruxelles, de 2 à 63 passagers. Confort optimal, véhicules conformes LEZ.
               </p>
             </div>
 
@@ -116,7 +113,7 @@ export default function Home() {
               <div className="bg-black p-4 rounded-lg w-fit mb-6 group-hover:bg-lime-400 transition-colors">
                 <Shield className="h-8 w-8 text-lime-400 group-hover:text-black" />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900">Sécurité prioritaire</h3>
+              <h3 className="text-xl font-bold mb-3 text-gray-900">Sécurité prioritaire pour tous vos trajets</h3>
               <p className="text-gray-600 leading-relaxed">
                 Notre flotte n'inclut que des véhicules récents et révisés scrupuleusement pour votre sécurité.
               </p>
@@ -126,7 +123,7 @@ export default function Home() {
               <div className="bg-black p-4 rounded-lg w-fit mb-6 group-hover:bg-lime-400 transition-colors">
                 <Award className="h-8 w-8 text-lime-400 group-hover:text-black" />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900">Chauffeurs expérimentés</h3>
+              <h3 className="text-xl font-bold mb-3 text-gray-900">Chauffeurs expérimentés basés à Bruxelles</h3>
               <p className="text-gray-600 leading-relaxed">
                 Chauffeurs recrutés selon des exigences strictes pour vous assurer un transport serein.
               </p>
@@ -136,9 +133,9 @@ export default function Home() {
               <div className="bg-black p-4 rounded-lg w-fit mb-6 group-hover:bg-lime-400 transition-colors">
                 <Clock className="h-8 w-8 text-lime-400 group-hover:text-black" />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900">Réponse rapide</h3>
+              <h3 className="text-xl font-bold mb-3 text-gray-900">Réponse rapide et devis en quelques minutes</h3>
               <p className="text-gray-600 leading-relaxed">
-                Nous nous engageons à répondre à vos demandes de devis sous 48h avec un service sur-mesure.
+                Équipe disponible 7j/7. Réponse à vos demandes de devis sous 48h avec un service sur-mesure pour Bruxelles et la Belgique.
               </p>
             </div>
           </div>
@@ -149,7 +146,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-              Pourquoi Choisir Autocaravecchauffeur ?
+              Pourquoi Choisir Autocaravecchauffeur à Bruxelles ?
             </h2>
             <div className="w-24 h-1 bg-lime-400 mx-auto mb-8"></div>
           </div>
@@ -160,7 +157,7 @@ export default function Home() {
                 <div className="flex items-start space-x-4">
                   <CheckCircle className="h-6 w-6 text-lime-500 flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Transparence totale</h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">Transparence totale sur les prix</h3>
                     <p className="text-gray-600 leading-relaxed">
                       Tarification claire et transparente sans frais cachés. Chaque devis est personnalisé selon vos besoins.
                     </p>
@@ -172,9 +169,9 @@ export default function Home() {
                 <div className="flex items-start space-x-4">
                   <CheckCircle className="h-6 w-6 text-lime-500 flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Flotte moderne</h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">Flotte moderne adaptée à la LEZ de Bruxelles</h3>
                     <p className="text-gray-600 leading-relaxed">
-                      Véhicules récents équipés de WiFi, climatisation et systèmes de divertissement pour votre confort.
+                      Véhicules récents, conformes à la zone basse émission (LEZ) de Bruxelles. WiFi, climatisation, divertissement. Idéal pour entreprises, écoles et événements.
                     </p>
                   </div>
                 </div>
@@ -184,9 +181,9 @@ export default function Home() {
                 <div className="flex items-start space-x-4">
                   <CheckCircle className="h-6 w-6 text-lime-500 flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Service personnalisé</h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">Service personnalisé pour écoles, entreprises et événements</h3>
                     <p className="text-gray-600 leading-relaxed">
-                      Équipe disponible 7j/7 et 24h/24 pour répondre à vos demandes et établir un devis sur-mesure.
+                      Équipe disponible 7j/7 et 24h/24 à Bruxelles pour répondre à vos demandes et établir un devis sur-mesure.
                     </p>
                   </div>
                 </div>
@@ -196,7 +193,7 @@ export default function Home() {
                 <div className="flex items-start space-x-4">
                   <CheckCircle className="h-6 w-6 text-lime-500 flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Expertise internationale</h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">Expertise des trajets en Belgique et en Europe</h3>
                     <p className="text-gray-600 leading-relaxed">
                       Service en Belgique et dans toute l'Europe avec des chauffeurs expérimentés et multilingues.
                     </p>
@@ -208,7 +205,7 @@ export default function Home() {
                 <div className="flex items-start space-x-4">
                   <CheckCircle className="h-6 w-6 text-lime-500 flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Ponctualité garantie</h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">Ponctualité garantie au départ de Bruxelles</h3>
                     <p className="text-gray-600 leading-relaxed">
                       Respect strict des horaires pour vos transferts, excursions et événements professionnels.
                     </p>
@@ -220,9 +217,9 @@ export default function Home() {
                 <div className="flex items-start space-x-4">
                   <CheckCircle className="h-6 w-6 text-lime-500 flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Adaptabilité complète</h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">Adaptabilité complète selon votre groupe</h3>
                     <p className="text-gray-600 leading-relaxed">
-                      Solutions flexibles pour tous types de groupes : entreprises, particuliers, écoles et associations.
+                      Solutions flexibles au départ de Bruxelles : entreprises, écoles, événements, associations et particuliers. Autocar ou minibus avec chauffeur.
                     </p>
                   </div>
                 </div>
@@ -231,14 +228,10 @@ export default function Home() {
 
             <div className="bg-gradient-to-br from-black to-gray-800 rounded-2xl shadow-2xl p-8 md:p-12 text-white">
               <p className="text-lg leading-relaxed mb-6">
-                Autocaravecchauffeur, société d'autocars à Bruxelles, vous propose des services sur-mesure dans
-                le domaine de la location d'autocars et minibus avec chauffeur au départ de Bruxelles :
-                excursions, transferts, navettes, accompagnement de groupes (voyages scolaires, linguistiques…),
-                transports pour particuliers et professionnels…
+                Autocaravecchauffeur, société d'autocars <strong>basée à Bruxelles</strong>, vous propose des services sur-mesure : location d'autocars et minibus <strong>avec chauffeur</strong> au départ de Bruxelles. Excursions, transferts, navettes pour <strong>entreprises</strong>, <strong>écoles</strong> et <strong>événements</strong>. Devis gratuit, équipe <strong>disponible</strong> 7j/7.
               </p>
               <p className="text-lg leading-relaxed mb-6">
-                Notre équipe est disponible <span className="font-bold text-lime-400">7 j/7 et 24h/24</span> par
-                téléphone et/ou par mail pour répondre à toutes vos demandes.
+                Notre équipe est <span className="font-bold text-lime-400">disponible 7j/7 et 24h/24</span> pour votre <strong>devis</strong> et toute demande au départ de Bruxelles.
               </p>
               <p className="text-lg leading-relaxed">
                 Grâce à notre expérience et à la qualité de notre flotte, nous sommes en mesure de desservir
@@ -270,11 +263,11 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-              Notre Flotte
+              Notre Flotte Disponible à Bruxelles
             </h2>
             <div className="w-24 h-1 bg-lime-400 mx-auto mb-8"></div>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Découvrez notre gamme complète de véhicules modernes et confortables, adaptés à tous vos besoins de transport.
+              Véhicules avec chauffeur au départ de Bruxelles, conformes LEZ. Entreprises, écoles, événements : devis gratuit, équipe disponible.
             </p>
           </div>
 
@@ -292,7 +285,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">Autocar Grand Tourisme</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">Autocar Grand Tourisme avec chauffeur</h3>
                 <p className="text-gray-600 leading-relaxed mb-4">
                   Véhicule haut de gamme idéal pour les longs trajets et les excursions. Équipé de sièges confortables, climatisation, WiFi et système de divertissement.
                 </p>
@@ -304,6 +297,10 @@ export default function Home() {
                   <li className="flex items-center text-gray-700">
                     <CheckCircle className="h-5 w-5 text-lime-500 mr-3 flex-shrink-0" />
                     <span>WiFi gratuit à bord</span>
+                  </li>
+                  <li className="flex items-center text-gray-700">
+                    <CheckCircle className="h-5 w-5 text-lime-500 mr-3 flex-shrink-0" />
+                    <span>Conforme LEZ Bruxelles</span>
                   </li>
                   <li className="flex items-center text-gray-700">
                     <CheckCircle className="h-5 w-5 text-lime-500 mr-3 flex-shrink-0" />
@@ -326,7 +323,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">Minibus Premium</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">Minibus Premium pour transferts VIP</h3>
                 <p className="text-gray-600 leading-relaxed mb-4">
                   Parfait pour les groupes moyens, mariages et événements privés. Confort optimal avec équipements modernes pour une expérience de voyage agréable.
                 </p>
@@ -360,7 +357,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">Bus MAN Moderne</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">Bus MAN moderne pour grands groupes</h3>
                 <p className="text-gray-600 leading-relaxed mb-4">
                   Bus de marque MAN, réputé pour sa fiabilité et son confort. Idéal pour les transferts aéroport, événements d'entreprise et excursions en groupe.
                 </p>
@@ -394,7 +391,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">Autocar Urbain</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">Autocar urbain pour déplacements dans Bruxelles</h3>
                 <p className="text-gray-600 leading-relaxed mb-4">
                   Véhicule polyvalent parfait pour les déplacements en ville et les circuits touristiques. Design moderne et équipements de haute qualité.
                 </p>
@@ -421,7 +418,7 @@ export default function Home() {
               to="/contact"
               className="bg-black text-white px-10 py-4 rounded-lg text-lg font-bold hover:bg-gray-800 transition-all inline-flex items-center space-x-2"
             >
-              <span>Demander un devis pour votre flotte</span>
+              <span>Devis gratuit — Autocar avec chauffeur à Bruxelles</span>
               <ArrowRight className="h-5 w-5" />
             </Link>
           </div>
@@ -432,11 +429,11 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-              Ce que Disent nos Clients
+              Ce que Disent nos Clients à Bruxelles
             </h2>
             <div className="w-24 h-1 bg-lime-400 mx-auto mb-8"></div>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              La satisfaction de nos clients est notre priorité. Découvrez leurs témoignages sur nos services de transport.
+              Entreprises, écoles et événements nous font confiance pour l'autocar avec chauffeur au départ de Bruxelles. Témoignages.
             </p>
           </div>
 
