@@ -39,12 +39,7 @@ export default function Home() {
         "name": "Excursions touristiques",
         "description": "Organisation d'excursions en Belgique et en Europe"
       }
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5",
-      "reviewCount": "6"
-    }
+    ]
   }
 
   return (
