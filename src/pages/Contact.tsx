@@ -80,8 +80,8 @@ export default function Contact() {
   return (
     <div>
       <SEO
-        title="Contact - Demande de Devis Location Autocar | Autocaravecchauffeur Bruxelles"
-        description="Contactez Autocaravecchauffeur pour votre devis gratuit de location d'autocar avec chauffeur à Bruxelles. Disponible 7j/7, 24h/24. Réponse sous 48h garantie."
+        title="Devis Autocar Bruxelles | Contact Location Minibus Chauffeur"
+        description="Demandez votre devis gratuit d'autocar ou minibus avec chauffeur à Bruxelles. Équipe disponible 7j/7. Réponse sous 48h."
         canonicalUrl="https://autocaravecchauffeur.be/contact"
         structuredData={structuredData}
       />

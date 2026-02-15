@@ -50,8 +50,8 @@ export default function Home() {
   return (
     <div>
       <SEO
-        title="Autocaravecchauffeur - Location Autocar avec Chauffeur à Bruxelles | Transport Groupe"
-        description="Location d'autocar et minibus avec chauffeur à Bruxelles. Flotte moderne de 16 véhicules (2-63 passagers). Transport groupe, excursions, transferts aéroport. Devis gratuit 7j/7."
+        title="Location Autocar Bruxelles | Minibus & Autocar avec Chauffeur"
+        description="Louez un autocar ou minibus avec chauffeur à Bruxelles. 2 à 63 places. Excursions, transferts aéroport, événements. Devis gratuit 7j/7."
         canonicalUrl="https://autocaravecchauffeur.be/"
         ogType="website"
         structuredData={structuredData}

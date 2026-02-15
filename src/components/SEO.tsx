@@ -16,7 +16,7 @@ export default function SEO({
   canonicalUrl,
   ogType = 'website',
   ogImage = 'https://ik.imagekit.io/by733ltn6/FAVICONS/favicon_io%20(8)/AZ.png?updatedAt=1759667457479',
-  keywords = 'autocar belgique, location autocar bruxelles, transport groupe belgique, autocar avec chauffeur, minibus bruxelles, excursion autocar, transfert aéroport belgique',
+  keywords = 'location autocar bruxelles, autocar bruxelles, minibus bruxelles, autocar avec chauffeur bruxelles, excursion bruxelles, transport groupe bruxelles, devis autocar bruxelles, transfert aéroport bruxelles',
   structuredData
 }: SEOProps) {
   useEffect(() => {

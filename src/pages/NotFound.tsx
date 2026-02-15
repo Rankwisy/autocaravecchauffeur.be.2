@@ -13,8 +13,8 @@ export default function NotFound() {
   return (
     <div>
       <SEO
-        title="404 - Page Non Trouvée | Autocaravecchauffeur"
-        description="La page que vous recherchez n'existe pas. Découvrez nos services de location d'autocar avec chauffeur à Bruxelles."
+        title="404 - Page non trouvée | Autocar Bruxelles"
+        description="Page introuvable. Retrouvez la location d'autocar avec chauffeur à Bruxelles : services, tarifs, contact. Devis gratuit."
         canonicalUrl="https://autocaravecchauffeur.be/404"
         structuredData={structuredData}
       />

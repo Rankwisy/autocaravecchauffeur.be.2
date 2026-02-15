@@ -69,8 +69,8 @@ export default function Blog() {
   return (
     <div>
       <SEO
-        title="Blog Transport Groupe & Autocar - Actualités & Conseils | Autocaravecchauffeur"
-        description="Découvrez nos articles sur le transport de groupe, excursions en autocar, conseils de voyage et actualités du secteur. Guide complet pour organiser vos déplacements en Belgique."
+        title="Blog Autocar Bruxelles | Conseils & Actualités Transport Groupe"
+        description="Conseils et actualités sur la location d'autocar à Bruxelles. Excursions, transport de groupe, bons plans. Lisez nos articles."
         canonicalUrl="https://autocaravecchauffeur.be/blog"
         structuredData={structuredData}
       />

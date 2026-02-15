@@ -173,6 +173,10 @@ export default function BlogPost() {
   }
 
   const canonicalUrl = `https://autocaravecchauffeur.be/blog/${post.slug}`;
+  const seoTitle =
+    (post.title.length > 42 ? post.title.slice(0, 39) + '…' : post.title) + ' | Autocar Bruxelles';
+  const seoDescription =
+    post.excerpt.length > 155 ? post.excerpt.slice(0, 152) + '…' : post.excerpt;
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -187,8 +191,8 @@ export default function BlogPost() {
   return (
     <div>
       <SEO
-        title={`${post.title} | Blog Autocaravecchauffeur`}
-        description={post.excerpt}
+        title={seoTitle.length > 60 ? seoTitle.slice(0, 57) + '…' : seoTitle}
+        description={seoDescription}
         canonicalUrl={canonicalUrl}
         ogType="article"
         ogImage={post.featured_image_url || undefined}

@@ -75,8 +75,8 @@ export default function Pricing() {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <SEO
-          title="Tarifs Location Autocar & Minibus avec Chauffeur | Prix Bruxelles Belgique"
-          description="Découvrez nos tarifs de location d'autocar et minibus avec chauffeur à Bruxelles. Prix compétitifs pour 2-63 passagers. Devis personnalisé gratuit sous 48h."
+          title="Tarifs Autocar Bruxelles | Devis Gratuit Minibus & Autocar"
+          description="Prix location autocar et minibus avec chauffeur à Bruxelles. 2 à 63 places. Devis personnalisé gratuit sous 48h. Réservation simple."
           canonicalUrl="https://autocaravecchauffeur.be/tarifs"
           structuredData={structuredData}
         />
@@ -91,8 +91,8 @@ export default function Pricing() {
   return (
     <div>
       <SEO
-        title="Tarifs Location Autocar & Minibus avec Chauffeur | Prix Bruxelles Belgique"
-        description="Découvrez nos tarifs de location d'autocar et minibus avec chauffeur à Bruxelles. Prix compétitifs pour 2-63 passagers. Devis personnalisé gratuit sous 48h."
+        title="Tarifs Autocar Bruxelles | Devis Gratuit Minibus & Autocar"
+        description="Prix location autocar et minibus avec chauffeur à Bruxelles. 2 à 63 places. Devis personnalisé gratuit sous 48h. Réservation simple."
         canonicalUrl="https://autocaravecchauffeur.be/tarifs"
         structuredData={structuredData}
       />

@@ -50,8 +50,8 @@ export default function Services() {
   return (
     <div>
       <SEO
-        title="Nos Services - Transport Groupe & Excursions en Autocar | Autocaravecchauffeur"
-        description="Services de location d'autocar et minibus avec chauffeur : excursions Belgique-Europe, transferts aéroport, événements privés, voyages scolaires. Équipements WiFi, TV. Devis 48h."
+        title="Location Autocar Bruxelles : Excursions, Transferts, Événements"
+        description="Autocar et minibus avec chauffeur au départ de Bruxelles. Excursions Belgique & Europe, transferts aéroport, voyages scolaires, séminaires. Devis 48h."
         canonicalUrl="https://autocaravecchauffeur.be/services"
         structuredData={structuredData}
       />
