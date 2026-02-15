@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Calendar, Tag, ArrowLeft, Clock } from 'lucide-react';
+import SEO from '../components/SEO';
 import { fetchPostBySlug, BlogPost as BlogPostType } from '../lib/supabase';
 
 interface BlogPostProps {
@@ -45,6 +46,42 @@ export default function BlogPost({ slug, onNavigate }: BlogPostProps) {
     return `${minutes} min de lecture`;
   };
 
+  const parseInlineContent = (text: string, keyPrefix: string) => {
+    const re = /\[([^\]]+)\]\(([^)]+)\)|\*\*(.+?)\*\*/g;
+    const nodes: React.ReactNode[] = [];
+    let lastIndex = 0;
+    let match;
+    while ((match = re.exec(text)) !== null) {
+      if (match.index > lastIndex) {
+        nodes.push(text.slice(lastIndex, match.index));
+      }
+      if (match[1] !== undefined) {
+        const url = match[2];
+        const isInternal = url.startsWith('https://autocaravecchauffeur.be') || url.startsWith('/');
+        nodes.push(
+          <a
+            key={`${keyPrefix}-${match.index}`}
+            href={url}
+            target={isInternal ? '_self' : '_blank'}
+            rel={isInternal ? undefined : 'noopener noreferrer'}
+            className="text-lime-600 underline hover:text-lime-700"
+          >
+            {match[1]}
+          </a>
+        );
+      } else {
+        nodes.push(
+          <strong key={`${keyPrefix}-${match.index}`} className="font-bold text-gray-900">
+            {match[3]}
+          </strong>
+        );
+      }
+      lastIndex = re.lastIndex;
+    }
+    if (lastIndex < text.length) nodes.push(text.slice(lastIndex));
+    return nodes.length === 1 ? nodes[0] : nodes;
+  };
+
   const formatContent = (content: string) => {
     const lines = content.split('\n');
     return lines.map((line, index) => {
@@ -79,7 +116,7 @@ export default function BlogPost({ slug, onNavigate }: BlogPostProps) {
       if (line.startsWith('- ')) {
         return (
           <li key={index} className="text-lg text-gray-700 leading-relaxed mb-2 ml-6">
-            {line.substring(2)}
+            {parseInlineContent(line.substring(2), `li-${index}`)}
           </li>
         );
       }
@@ -87,18 +124,9 @@ export default function BlogPost({ slug, onNavigate }: BlogPostProps) {
         return <div key={index} className="h-4"></div>;
       }
 
-      const boldRegex = /\*\*(.*?)\*\*/g;
-      const parts = line.split(boldRegex);
-      const formattedLine = parts.map((part, i) => {
-        if (i % 2 === 1) {
-          return <strong key={i} className="font-bold text-gray-900">{part}</strong>;
-        }
-        return part;
-      });
-
       return (
         <p key={index} className="text-lg text-gray-700 leading-relaxed mb-4">
-          {formattedLine}
+          {parseInlineContent(line, `p-${index}`)}
         </p>
       );
     });
@@ -132,8 +160,28 @@ export default function BlogPost({ slug, onNavigate }: BlogPostProps) {
     );
   }
 
+  const canonicalUrl = `https://autocaravecchauffeur.be/blog/${post.slug}`;
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.excerpt,
+    image: post.featured_image_url || undefined,
+    author: { '@type': 'Organization', name: post.author },
+    publisher: { '@type': 'Organization', name: 'Autocaravecchauffeur' },
+    datePublished: post.published_at || undefined,
+  };
+
   return (
     <div>
+      <SEO
+        title={`${post.title} | Blog Autocaravecchauffeur`}
+        description={post.excerpt}
+        canonicalUrl={canonicalUrl}
+        ogType="article"
+        ogImage={post.featured_image_url || undefined}
+        structuredData={structuredData}
+      />
       <section className="bg-gradient-to-br from-black via-gray-900 to-black text-white py-12">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <button
