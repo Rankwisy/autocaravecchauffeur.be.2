@@ -31,9 +31,9 @@ function formatContent(content: string): string {
   const lines = content.split('\n');
   return lines
     .map((line) => {
-      if (line.startsWith('# ')) return `<h1 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900 mt-8">${escapeHtml(line.substring(2))}</h1>`;
-      if (line.startsWith('## ')) return `<h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900 mt-8">${escapeHtml(line.substring(3))}</h2>`;
-      if (line.startsWith('### ')) return `<h3 class="text-2xl md:text-3xl font-bold mb-3 text-gray-900 mt-6">${escapeHtml(line.substring(4))}</h3>`;
+      if (line.startsWith('# ')) return `<h2 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900 mt-8">${escapeHtml(line.substring(2))}</h2>`;
+      if (line.startsWith('## ')) return `<h3 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900 mt-8">${escapeHtml(line.substring(3))}</h3>`;
+      if (line.startsWith('### ')) return `<h4 class="text-2xl md:text-3xl font-bold mb-3 text-gray-900 mt-6">${escapeHtml(line.substring(4))}</h4>`;
       if (line.startsWith('**') && line.endsWith('**')) return `<p class="text-lg text-gray-700 leading-relaxed mb-4 font-bold">${escapeHtml(line.substring(2, line.length - 2))}</p>`;
       if (line.startsWith('- ')) {
         const inner = line.substring(2).replace(/\*\*(.+?)\*\*/g, '<strong class="font-bold text-gray-900">$1</strong>').replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, t, u) => `<a href="${u}" class="text-lime-600 underline hover:text-lime-700" target="_blank" rel="noopener noreferrer">${t}</a>`);
