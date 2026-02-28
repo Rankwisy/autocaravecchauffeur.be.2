@@ -1,13 +1,63 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
-import { Shield, Users, Clock, Award, ArrowRight, CheckCircle, Star, Quote, Bus } from 'lucide-react';
+import {
+  Shield,
+  Users,
+  Clock,
+  Award,
+  ArrowRight,
+  CheckCircle,
+  Star,
+  Quote,
+  Bus,
+  Briefcase,
+  PartyPopper,
+  MapPin,
+} from 'lucide-react';
+
+const FAQ_ITEMS = [
+  {
+    q: "Quel est le prix d'un autocar avec chauffeur à Bruxelles ?",
+    a: "Les tarifs varient selon la capacité (minibus 2-19 places, autocar jusqu'à 63 places), le type de trajet (à la journée, transfert aéroport, forfait événementiel) et la destination. Nos prix sont indiqués à partir de quelques centaines d'euros pour une journée. Obtenez un devis gratuit et sans engagement pour un prix précis adapté à votre trajet au départ de Bruxelles, Ixelles, Uccle ou Schaerbeek.",
+  },
+  {
+    q: 'Comment obtenir un devis gratuit pour la location d\'autocar ?',
+    a: "Remplissez notre formulaire de contact ou appelez-nous. Nous vous envoyons un devis personnalisé sous 48h, gratuit et sans engagement. Précisez votre date, le nombre de passagers, le type de trajet (séminaire, événement, sortie scolaire) et votre lieu de prise en charge à Bruxelles ou en périphérie.",
+  },
+  {
+    q: 'Les tarifs incluent-ils le chauffeur et le carburant ?',
+    a: "Oui. Le prix inclut en général le véhicule avec chauffeur professionnel, le carburant, les péages, l'assurance et les frais de route. Les options (WiFi, climatisation) sont précisées sur chaque formule. Consultez nos tarifs autocar Bruxelles pour plus de détails ou demandez un devis personnalisé gratuit.",
+  },
+  {
+    q: "Puis-je réserver un autocar sans engagement ?",
+    a: "Oui. La demande de devis est gratuite et sans engagement. Une fois notre proposition acceptée, la réservation peut être confirmée selon nos conditions. Notre équipe est disponible 7j/7 pour toute question avant de vous engager.",
+  },
+  {
+    q: "Combien coûte un transport de groupe pour un événement ?",
+    a: "Le coût dépend du nombre de passagers, de la durée et du type d'événement (mariage, séminaire, congrès). Nos autocars événementiels sont disponibles de 2 à 63 places. Obtenez un devis personnalisé gratuit sous 48h, sans engagement, adapté à votre événement au départ de Bruxelles.",
+  },
+  {
+    q: 'Desservez-vous toutes les communes de Bruxelles (Ixelles, Uccle, Schaerbeek…) ?',
+    a: "Oui. Nous intervenons dans toute la Région de Bruxelles-Capitale : Bruxelles-Ville, Ixelles, Uccle, Schaerbeek, Etterbeek, Woluwe-Saint-Lambert, Woluwe-Saint-Pierre, Anderlecht, Saint-Gilles, Evere, Jette, Molenbeek, Forest, Zaventem, le Quartier Européen, l'Avenue Louise et la Gare du Midi. Prise en charge à l'adresse de votre choix.",
+  },
+];
+
+const faqStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQ_ITEMS.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
+};
 
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'TransportationService',
   name: 'Autocaravecchauffeur',
   description:
-    "Location d'autocar et minibus avec chauffeur à Bruxelles pour transport de groupe",
+    "Location d'autocar haut de gamme et transport de groupe avec chauffeur à Bruxelles. Autocar événementiel pour entreprises, mariages et écoles. Devis gratuit sous 48h.",
   url: 'https://autocaravecchauffeur.be',
   logo:
     'https://ik.imagekit.io/by733ltn6/FAVICONS/favicon_io%20(8)/apple-touch-icon.png?updatedAt=1759666614409',
@@ -21,30 +71,38 @@ const structuredData = {
   availableService: [
     {
       '@type': 'Service',
-      name: "Location d'autocar avec chauffeur",
+      name: "Location d'autocar haut de gamme avec chauffeur",
       description: 'Transport de groupe de 2 à 63 passagers',
+    },
+    {
+      '@type': 'Service',
+      name: 'Transport événementiel — Mariages et événements',
+      description: 'Autocar événementiel pour organisateurs',
+    },
+    {
+      '@type': 'Service',
+      name: 'Transport entreprise — Séminaires et congrès',
+      description: 'Navette privée et forfait journée',
     },
     {
       '@type': 'Service',
       name: 'Transfert aéroport',
       description: 'Service de transfert depuis et vers les aéroports belges',
     },
-    {
-      '@type': 'Service',
-      name: 'Excursions touristiques',
-      description: "Organisation d'excursions en Belgique et en Europe",
-    },
   ],
 };
+
+const jsonLd = [structuredData, faqStructuredData];
 ---
 
 <PageLayout
-  title="Location Autocar Bruxelles | Minibus & Autocar avec Chauffeur"
-  description="Louez un autocar ou minibus avec chauffeur à Bruxelles. 2 à 63 places. Excursions, transferts aéroport, événements. Devis gratuit 7j/7."
+  title="Location Autocar avec Chauffeur Bruxelles | Autocar Haut de Gamme & Transport de Groupe"
+  description="Location autocar haut de gamme avec chauffeur à Bruxelles. Transport de groupe, autocar événementiel. Devis gratuit sous 48h, sans engagement. Entreprises, événements, écoles."
   canonical="https://autocaravecchauffeur.be/"
   ogType="website"
-  jsonLd={structuredData}
+  jsonLd={jsonLd}
 >
+  <!-- Hero -->
   <section class="relative bg-black text-white py-24 overflow-hidden">
     <div
       class="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -55,277 +113,103 @@ const structuredData = {
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="text-center max-w-4xl mx-auto">
         <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight drop-shadow-lg">
-          Autocar avec Chauffeur à Bruxelles – Location pour Groupes et Entreprises
+          Location Autocar avec Chauffeur Bruxelles — Transport de Groupe Haut de Gamme
         </h1>
         <p class="text-2xl md:text-3xl mb-4 text-lime-400 font-semibold drop-shadow-lg">
-          Votre Satisfaction dans l'absolu !
+          Votre partenaire pour entreprises, événements et groupes privés. Devis gratuit sous 48h.
         </p>
         <p class="text-xl md:text-2xl mb-10 text-gray-300 drop-shadow-lg">
-          AUTOCAR AVEC CHAUFFEUR À BRUXELLES — DEVIS GRATUIT, SANS ENGAGEMENT
+          Autocar haut de gamme, navette privée, transport événementiel — sans engagement
         </p>
         <a
           href="/contact"
           class="bg-lime-400 text-black px-10 py-4 rounded-lg text-lg font-bold hover:bg-lime-300 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl inline-flex items-center space-x-2"
         >
-          <span>Demander un devis gratuit — sans engagement</span>
+          <span>Obtenir mon devis gratuit — sans engagement</span>
           <ArrowRight class="h-5 w-5" />
         </a>
       </div>
     </div>
   </section>
 
+  <!-- Introduction SEO -->
   <section class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-          Qui sommes nous à Bruxelles ?
-        </h2>
-        <div class="w-24 h-1 bg-lime-400 mx-auto mb-8"></div>
-        <p class="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
-          Autocaravecchauffeur est une compagnie <strong>basée à Bruxelles</strong>, spécialisée dans
-          la <strong>location</strong> d'autocar et minibus <strong>avec chauffeur
-          professionnel</strong>. Réservation, forfait à la journée ou au trajet, navette et transport
-          de groupe : nous répondons aux besoins des <strong>entreprises</strong> (séminaires,
-          congrès), des <strong>écoles</strong> (voyages scolaires, sorties) et des
-          <strong>événements</strong> (mariages, séminaires, associations). Capacité de 2 à 63
-          passagers au départ de Bruxelles en Belgique et en Europe. <strong>Devis gratuit</strong>,
-          équipe <strong>disponible</strong> 7j/7.
-        </p>
-        <p class="text-base text-gray-600 max-w-4xl mx-auto leading-relaxed mt-4">
-          Nous intervenons dans toute la Région de Bruxelles-Capitale : Bruxelles-Ville, Schaerbeek,
-          Ixelles, Anderlecht, Saint-Gilles, Uccle, Woluwe-Saint-Pierre, Woluwe-Saint-Lambert, Evere,
-          Jette, Molenbeek, Forest et les autres communes. Prise en charge à l'adresse de votre
-          choix.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
-        <div
-          class="bg-gray-50 p-8 rounded-xl hover:shadow-xl transition-all border-t-4 border-lime-400 group hover:bg-lime-50"
-        >
-          <div class="bg-black p-4 rounded-lg w-fit mb-6 group-hover:bg-lime-400 transition-colors">
-            <Users class="h-8 w-8 text-lime-400 group-hover:text-black" />
-          </div>
-          <h3 class="text-xl font-bold mb-3 text-gray-900">
-            Flotte complète disponible à Bruxelles et alentours
-          </h3>
-          <p class="text-gray-600 leading-relaxed">
-            Flotte de 16 véhicules (autocars et minibus) avec chauffeur au départ de Bruxelles :
-            capacité de 2 à 63 passagers. Réservation simple, forfait journée ou trajet, navette.
-            Confort optimal, véhicules conformes LEZ.
-          </p>
-        </div>
-
-        <div
-          class="bg-gray-50 p-8 rounded-xl hover:shadow-xl transition-all border-t-4 border-lime-400 group hover:bg-lime-50"
-        >
-          <div class="bg-black p-4 rounded-lg w-fit mb-6 group-hover:bg-lime-400 transition-colors">
-            <Shield class="h-8 w-8 text-lime-400 group-hover:text-black" />
-          </div>
-          <h3 class="text-xl font-bold mb-3 text-gray-900">
-            Sécurité prioritaire pour tous vos trajets
-          </h3>
-          <p class="text-gray-600 leading-relaxed">
-            Notre flotte n'inclut que des véhicules récents et révisés scrupuleusement pour votre
-            sécurité.
-          </p>
-        </div>
-
-        <div
-          class="bg-gray-50 p-8 rounded-xl hover:shadow-xl transition-all border-t-4 border-lime-400 group hover:bg-lime-50"
-        >
-          <div class="bg-black p-4 rounded-lg w-fit mb-6 group-hover:bg-lime-400 transition-colors">
-            <Award class="h-8 w-8 text-lime-400 group-hover:text-black" />
-          </div>
-          <h3 class="text-xl font-bold mb-3 text-gray-900">
-            Chauffeurs expérimentés basés à Bruxelles
-          </h3>
-          <p class="text-gray-600 leading-relaxed">
-            Chauffeurs recrutés selon des exigences strictes pour vous assurer un transport serein.
-          </p>
-        </div>
-
-        <div
-          class="bg-gray-50 p-8 rounded-xl hover:shadow-xl transition-all border-t-4 border-lime-400 group hover:bg-lime-50"
-        >
-          <div class="bg-black p-4 rounded-lg w-fit mb-6 group-hover:bg-lime-400 transition-colors">
-            <Clock class="h-8 w-8 text-lime-400 group-hover:text-black" />
-          </div>
-          <h3 class="text-xl font-bold mb-3 text-gray-900">Réponse rapide et devis sous 48h</h3>
-          <p class="text-gray-600 leading-relaxed">
-            Équipe disponible 7j/7. Réponse à vos demandes de devis sous 48h, sans engagement, avec
-            un service sur-mesure pour Bruxelles et la Belgique.
-          </p>
-        </div>
-      </div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-lg text-gray-700 leading-relaxed">
+        <strong>Autocaravecchauffeur</strong> assure la <strong>location autocar avec chauffeur à Bruxelles</strong> pour votre <strong>transport de groupe</strong>. Notre flotte d’<strong>autocars haut de gamme</strong> et de minibus premium sert les <strong>entreprises</strong> (séminaires, congrès, team building), les <strong>organisateurs d’événements</strong> (mariages, anniversaires) et les <strong>écoles</strong> (voyages scolaires, sorties). Nous intervenons à Bruxelles-Ville, Ixelles, Uccle, Schaerbeek, Etterbeek, Woluwe-Saint-Lambert, Woluwe-Saint-Pierre, Anderlecht, Zaventem, au Quartier Européen et à la Gare du Midi. Capacité de 2 à 63 passagers. <strong>Devis gratuit</strong>, réponse <strong>sous 48h</strong>, équipe disponible <strong>7j/7</strong>.
+      </p>
     </div>
   </section>
 
+  <!-- Pourquoi nous choisir -->
   <section class="py-20 bg-gradient-to-b from-gray-50 to-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-          Pourquoi Choisir Autocaravecchauffeur à Bruxelles ?
+          Pourquoi nous choisir
         </h2>
         <div class="w-24 h-1 bg-lime-400 mx-auto mb-8"></div>
       </div>
 
-      <div class="max-w-5xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-          <div
-            class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all border-l-4 border-lime-400"
-          >
-            <div class="flex items-start space-x-4">
-              <CheckCircle class="h-6 w-6 text-lime-500 flex-shrink-0 mt-1" />
-              <div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Transparence totale sur les prix</h3>
-                <p class="text-gray-600 leading-relaxed">
-                  Tarification claire et transparente sans frais cachés. Chaque devis est
-                  personnalisé selon vos besoins.
-                </p>
-              </div>
-            </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-white p-8 rounded-xl hover:shadow-xl transition-all border-t-4 border-lime-400 group hover:bg-lime-50/50">
+          <div class="bg-black p-4 rounded-lg w-fit mb-6 group-hover:bg-lime-400 transition-colors">
+            <Users class="h-8 w-8 text-lime-400 group-hover:text-black" />
           </div>
-
-          <div
-            class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all border-l-4 border-lime-400"
-          >
-            <div class="flex items-start space-x-4">
-              <CheckCircle class="h-6 w-6 text-lime-500 flex-shrink-0 mt-1" />
-              <div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">
-                  Flotte moderne adaptée à la LEZ de Bruxelles
-                </h3>
-                <p class="text-gray-600 leading-relaxed">
-                  Véhicules récents, conformes à la zone basse émission (LEZ) de Bruxelles. WiFi,
-                  climatisation, divertissement. Idéal pour entreprises, écoles et événements.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all border-l-4 border-lime-400"
-          >
-            <div class="flex items-start space-x-4">
-              <CheckCircle class="h-6 w-6 text-lime-500 flex-shrink-0 mt-1" />
-              <div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">
-                  Service personnalisé pour écoles, entreprises et événements
-                </h3>
-                <p class="text-gray-600 leading-relaxed">
-                  Équipe disponible 7j/7 et 24h/24 à Bruxelles pour répondre à vos demandes et
-                  établir un devis sur-mesure.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all border-l-4 border-lime-400"
-          >
-            <div class="flex items-start space-x-4">
-              <CheckCircle class="h-6 w-6 text-lime-500 flex-shrink-0 mt-1" />
-              <div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">
-                  Expertise des trajets en Belgique et en Europe
-                </h3>
-                <p class="text-gray-600 leading-relaxed">
-                  Service en Belgique et dans toute l'Europe avec des chauffeurs expérimentés et
-                  multilingues.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all border-l-4 border-lime-400"
-          >
-            <div class="flex items-start space-x-4">
-              <CheckCircle class="h-6 w-6 text-lime-500 flex-shrink-0 mt-1" />
-              <div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">
-                  Ponctualité garantie au départ de Bruxelles
-                </h3>
-                <p class="text-gray-600 leading-relaxed">
-                  Respect strict des horaires pour vos transferts, excursions et événements
-                  professionnels.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all border-l-4 border-lime-400"
-          >
-            <div class="flex items-start space-x-4">
-              <CheckCircle class="h-6 w-6 text-lime-500 flex-shrink-0 mt-1" />
-              <div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">
-                  Adaptabilité complète selon votre groupe
-                </h3>
-                <p class="text-gray-600 leading-relaxed">
-                  Solutions flexibles au départ de Bruxelles : entreprises, écoles, événements,
-                  associations et particuliers. Autocar ou minibus avec chauffeur.
-                </p>
-              </div>
-            </div>
-          </div>
+          <h3 class="text-xl font-bold mb-3 text-gray-900">Flotte premium à Bruxelles</h3>
+          <p class="text-gray-600 leading-relaxed">
+            16 véhicules : autocars et minibus haut de gamme, 2 à 63 places. Navette privée, forfait journée, véhicules conformes LEZ Bruxelles.
+          </p>
         </div>
 
-        <div class="bg-gradient-to-br from-black to-gray-800 rounded-2xl shadow-2xl p-8 md:p-12 text-white">
-          <p class="text-lg leading-relaxed mb-6">
-            Autocaravecchauffeur, société d'autocars <strong>basée à Bruxelles</strong>, vous propose
-            des services sur-mesure : location d'autocars et minibus <strong>avec chauffeur</strong>
-            au départ de Bruxelles. Excursions, transferts, navettes pour <strong>entreprises</strong
-            >, <strong>écoles</strong> et <strong>événements</strong>. Devis gratuit, équipe
-            <strong>disponible</strong> 7j/7.
-          </p>
-          <p class="text-lg leading-relaxed mb-6">
-            Notre équipe est <span class="font-bold text-lime-400">disponible 7j/7 et 24h/24</span>
-            pour votre <strong>devis</strong> et toute demande au départ de Bruxelles.
-          </p>
-          <p class="text-lg leading-relaxed mb-10">
-            Grâce à notre expérience et à la qualité de notre flotte, nous sommes en mesure de
-            desservir toute la Belgique, mais aussi les destinations de votre choix en Europe.
-          </p>
-
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="/services"
-              class="bg-white text-black px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-100 transition-all inline-flex items-center justify-center space-x-2"
-            >
-              <span>Voir nos formules d'autocar et minibus avec chauffeur</span>
-              <ArrowRight class="h-5 w-5" />
-            </a>
-            <a
-              href="/contact"
-              class="bg-lime-400 text-black px-8 py-4 rounded-lg text-lg font-bold hover:bg-lime-300 transition-all inline-flex items-center justify-center space-x-2"
-            >
-              <span>Demander un devis gratuit</span>
-              <ArrowRight class="h-5 w-5" />
-            </a>
+        <div class="bg-white p-8 rounded-xl hover:shadow-xl transition-all border-t-4 border-lime-400 group hover:bg-lime-50/50">
+          <div class="bg-black p-4 rounded-lg w-fit mb-6 group-hover:bg-lime-400 transition-colors">
+            <Shield class="h-8 w-8 text-lime-400 group-hover:text-black" />
           </div>
+          <h3 class="text-xl font-bold mb-3 text-gray-900">Sécurité et professionnalisme</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Véhicules récents, révision régulière. Chauffeurs professionnels pour un transport serein.
+          </p>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl hover:shadow-xl transition-all border-t-4 border-lime-400 group hover:bg-lime-50/50">
+          <div class="bg-black p-4 rounded-lg w-fit mb-6 group-hover:bg-lime-400 transition-colors">
+            <Award class="h-8 w-8 text-lime-400 group-hover:text-black" />
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-gray-900">Expertise transport de groupe</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Chauffeurs expérimentés, multilingues. Service sur mesure pour entreprises, événements et écoles.
+          </p>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl hover:shadow-xl transition-all border-t-4 border-lime-400 group hover:bg-lime-50/50">
+          <div class="bg-black p-4 rounded-lg w-fit mb-6 group-hover:bg-lime-400 transition-colors">
+            <Clock class="h-8 w-8 text-lime-400 group-hover:text-black" />
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-gray-900">Devis gratuit sous 48h</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Équipe disponible 7j/7. Réponse rapide à vos demandes, sans engagement. <a href="/contact" class="text-lime-600 font-semibold hover:text-lime-700">Obtenir mon devis gratuit</a>.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="py-20 bg-gradient-to-b from-white to-gray-50">
+  <!-- Notre flotte haut de gamme -->
+  <section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-          Notre Flotte Disponible à Bruxelles
+          Notre flotte d'autocars haut de gamme
         </h2>
         <div class="w-24 h-1 bg-lime-400 mx-auto mb-8"></div>
         <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-          Véhicules avec chauffeur au départ de Bruxelles, conformes LEZ. Entreprises, écoles,
-          événements : devis gratuit, équipe disponible.
+          Véhicules grand tourisme et minibus premium au départ de Bruxelles. Conformes LEZ. Entreprises, événements, écoles : <a href="/contact" class="text-lime-600 font-semibold hover:text-lime-700">devis personnalisé gratuit</a>.
         </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-        <article class="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all group">
+        <article class="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all group border border-gray-100">
           <div class="relative h-72 overflow-hidden">
             <img
               src="https://ik.imagekit.io/by733ltn6/FAVICONS/favicon_io%20(8)/aze.png?updatedAt=1759667457388"
@@ -341,12 +225,9 @@ const structuredData = {
             </div>
           </div>
           <div class="p-8">
-            <h3 class="text-2xl font-bold text-gray-900 mb-3">
-              Autocar Grand Tourisme avec chauffeur
-            </h3>
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">Autocar Grand Tourisme avec chauffeur</h3>
             <p class="text-gray-600 leading-relaxed mb-4">
-              Véhicule haut de gamme idéal pour les longs trajets et les excursions. Équipé de sièges
-              confortables, climatisation, WiFi et système de divertissement.
+              Véhicule haut de gamme idéal pour séminaires, excursions et transport événementiel. WiFi, climatisation, divertissement.
             </p>
             <ul class="space-y-2">
               <li class="flex items-center text-gray-700">
@@ -355,21 +236,13 @@ const structuredData = {
               </li>
               <li class="flex items-center text-gray-700">
                 <CheckCircle class="h-5 w-5 text-lime-500 mr-3 flex-shrink-0" />
-                <span>WiFi gratuit à bord</span>
-              </li>
-              <li class="flex items-center text-gray-700">
-                <CheckCircle class="h-5 w-5 text-lime-500 mr-3 flex-shrink-0" />
                 <span>Conforme LEZ Bruxelles</span>
-              </li>
-              <li class="flex items-center text-gray-700">
-                <CheckCircle class="h-5 w-5 text-lime-500 mr-3 flex-shrink-0" />
-                <span>Climatisation moderne</span>
               </li>
             </ul>
           </div>
         </article>
 
-        <article class="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all group">
+        <article class="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all group border border-gray-100">
           <div class="relative h-72 overflow-hidden">
             <img
               src="https://ik.imagekit.io/by733ltn6/FAVICONS/favicon_io%20(8)/AZ.png?updatedAt=1759667457479"
@@ -385,10 +258,9 @@ const structuredData = {
             </div>
           </div>
           <div class="p-8">
-            <h3 class="text-2xl font-bold text-gray-900 mb-3">Minibus Premium pour transferts VIP</h3>
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">Minibus Premium — transport VIP</h3>
             <p class="text-gray-600 leading-relaxed mb-4">
-              Parfait pour les groupes moyens, mariages et événements privés. Confort optimal avec
-              équipements modernes pour une expérience de voyage agréable.
+              Idéal pour mariages, événements privés et groupes moyens. Confort optimal, équipements haut de gamme.
             </p>
             <ul class="space-y-2">
               <li class="flex items-center text-gray-700">
@@ -399,88 +271,6 @@ const structuredData = {
                 <CheckCircle class="h-5 w-5 text-lime-500 mr-3 flex-shrink-0" />
                 <span>Sièges ergonomiques</span>
               </li>
-              <li class="flex items-center text-gray-700">
-                <CheckCircle class="h-5 w-5 text-lime-500 mr-3 flex-shrink-0" />
-                <span>Espace bagages généreux</span>
-              </li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all group">
-          <div class="relative h-72 overflow-hidden">
-            <img
-              src="https://ik.imagekit.io/by733ltn6/FAVICONS/favicon_io%20(8)/31%20juiellet%20%20a%20bruxelles%20une%20bus%20marc%20man%20a%20laerport.png?updatedAt=1759691287357"
-              alt="Bus MAN moderne 50 places à l'aéroport de Bruxelles pour transferts aéroport et événements d'entreprise"
-              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              width="600"
-              height="288"
-              loading="lazy"
-            />
-            <div class="absolute top-4 right-4 bg-lime-400 text-black px-4 py-2 rounded-full font-bold flex items-center space-x-2">
-              <Bus class="h-5 w-5" />
-              <span>50 Places</span>
-            </div>
-          </div>
-          <div class="p-8">
-            <h3 class="text-2xl font-bold text-gray-900 mb-3">Bus MAN moderne pour grands groupes</h3>
-            <p class="text-gray-600 leading-relaxed mb-4">
-              Bus de marque MAN, réputé pour sa fiabilité et son confort. Idéal pour les transferts
-              aéroport, événements d'entreprise et excursions en groupe.
-            </p>
-            <ul class="space-y-2">
-              <li class="flex items-center text-gray-700">
-                <CheckCircle class="h-5 w-5 text-lime-500 mr-3 flex-shrink-0" />
-                <span>Véhicule récent et entretenu</span>
-              </li>
-              <li class="flex items-center text-gray-700">
-                <CheckCircle class="h-5 w-5 text-lime-500 mr-3 flex-shrink-0" />
-                <span>Système audio premium</span>
-              </li>
-              <li class="flex items-center text-gray-700">
-                <CheckCircle class="h-5 w-5 text-lime-500 mr-3 flex-shrink-0" />
-                <span>Confort de conduite optimal</span>
-              </li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all group">
-          <div class="relative h-72 overflow-hidden">
-            <img
-              src="https://ik.imagekit.io/by733ltn6/FAVICONS/favicon_io%20(8)/janvier%202025%20bruxelles%20bus%20blanche%20en%20route.png?updatedAt=1759691287360"
-              alt="Autocar urbain blanc 40 places en route à Bruxelles pour circuits touristiques et déplacements en ville"
-              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              width="600"
-              height="288"
-              loading="lazy"
-            />
-            <div class="absolute top-4 right-4 bg-lime-400 text-black px-4 py-2 rounded-full font-bold flex items-center space-x-2">
-              <Bus class="h-5 w-5" />
-              <span>40+ Places</span>
-            </div>
-          </div>
-          <div class="p-8">
-            <h3 class="text-2xl font-bold text-gray-900 mb-3">
-              Autocar urbain pour déplacements dans Bruxelles
-            </h3>
-            <p class="text-gray-600 leading-relaxed mb-4">
-              Véhicule polyvalent parfait pour les déplacements en ville et les circuits touristiques.
-              Design moderne et équipements de haute qualité.
-            </p>
-            <ul class="space-y-2">
-              <li class="flex items-center text-gray-700">
-                <CheckCircle class="h-5 w-5 text-lime-500 mr-3 flex-shrink-0" />
-                <span>Maniabilité en milieu urbain</span>
-              </li>
-              <li class="flex items-center text-gray-700">
-                <CheckCircle class="h-5 w-5 text-lime-500 mr-3 flex-shrink-0" />
-                <span>Accès facilité PMR</span>
-              </li>
-              <li class="flex items-center text-gray-700">
-                <CheckCircle class="h-5 w-5 text-lime-500 mr-3 flex-shrink-0" />
-                <span>Design contemporain</span>
-              </li>
             </ul>
           </div>
         </article>
@@ -488,31 +278,199 @@ const structuredData = {
 
       <div class="text-center mt-12">
         <a
-          href="/contact"
-          class="bg-black text-white px-10 py-4 rounded-lg text-lg font-bold hover:bg-gray-800 transition-all inline-flex items-center space-x-2"
+          href="/services"
+          class="inline-block bg-black text-white px-10 py-4 rounded-lg text-lg font-bold hover:bg-gray-800 transition-all"
         >
-          <span>Devis gratuit — Autocar avec chauffeur à Bruxelles</span>
-          <ArrowRight class="h-5 w-5" />
+          Voir nos services de transport de groupe
         </a>
       </div>
     </div>
   </section>
 
+  <!-- Transport d'entreprise -->
+  <section class="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="inline-block bg-lime-400 p-3 rounded-lg mb-6">
+            <Briefcase class="h-10 w-10 text-black" />
+          </div>
+          <h2 class="text-4xl font-bold mb-6 text-gray-900">
+            Transport d'entreprise — Séminaires & Congrès
+          </h2>
+          <p class="text-lg text-gray-700 leading-relaxed mb-4">
+            <strong>Autocar haut de gamme</strong> pour vos séminaires, congrès et team building. Navette privée, forfait journée, chauffeur professionnel. Prise en charge à Bruxelles-Ville, Ixelles, Uccle, Schaerbeek, Quartier Européen et partout en Belgique.
+          </p>
+          <p class="text-lg text-gray-700 leading-relaxed mb-6">
+            Véhicules équipés WiFi, climatisation, espace bagages. Devis gratuit sous 48h, sans engagement.
+          </p>
+          <a
+            href="/contact"
+            class="inline-flex items-center space-x-2 bg-lime-400 text-black px-8 py-4 rounded-lg font-bold hover:bg-lime-300 transition-all"
+          >
+            <span>Obtenir mon devis gratuit</span>
+            <ArrowRight class="h-5 w-5" />
+          </a>
+        </div>
+        <div class="bg-gray-900 rounded-2xl p-8 text-white">
+          <h3 class="text-xl font-bold mb-4 text-lime-400">Pour qui ?</h3>
+          <ul class="space-y-3 text-gray-300">
+            <li class="flex items-center space-x-2">
+              <CheckCircle class="h-5 w-5 text-lime-400 flex-shrink-0" />
+              <span>Séminaires et congrès</span>
+            </li>
+            <li class="flex items-center space-x-2">
+              <CheckCircle class="h-5 w-5 text-lime-400 flex-shrink-0" />
+              <span>Team building</span>
+            </li>
+            <li class="flex items-center space-x-2">
+              <CheckCircle class="h-5 w-5 text-lime-400 flex-shrink-0" />
+              <span>Transferts aéroport</span>
+            </li>
+            <li class="flex items-center space-x-2">
+              <CheckCircle class="h-5 w-5 text-lime-400 flex-shrink-0" />
+              <span>Excursions professionnelles</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Transport événementiel -->
   <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="order-2 lg:order-1 bg-gradient-to-br from-lime-400 to-lime-500 rounded-2xl p-8 md:p-12 text-black">
+          <h3 class="text-xl font-bold mb-4">Autocar événementiel</h3>
+          <ul class="space-y-3">
+            <li class="flex items-center space-x-2">
+              <CheckCircle class="h-5 w-5 text-black flex-shrink-0" />
+              <span>Mariages et anniversaires</span>
+            </li>
+            <li class="flex items-center space-x-2">
+              <CheckCircle class="h-5 w-5 text-black flex-shrink-0" />
+              <span>Organisateurs d'événements</span>
+            </li>
+            <li class="flex items-center space-x-2">
+              <CheckCircle class="h-5 w-5 text-black flex-shrink-0" />
+              <span>Groupes privés</span>
+            </li>
+          </ul>
+        </div>
+        <div class="order-1 lg:order-2">
+          <div class="inline-block bg-lime-400 p-3 rounded-lg mb-6">
+            <PartyPopper class="h-10 w-10 text-black" />
+          </div>
+          <h2 class="text-4xl font-bold mb-6 text-gray-900">
+            Transport événementiel — Mariages & Événements
+          </h2>
+          <p class="text-lg text-gray-700 leading-relaxed mb-4">
+            <strong>Autocar événementiel</strong> pour mariages, anniversaires et célébrations. Minibus premium et autocars haut de gamme pour organisateurs d'événements et groupes privés. Prise en charge dans toute la Région bruxelloise.
+          </p>
+          <p class="text-lg text-gray-700 leading-relaxed mb-6">
+            Chauffeur professionnel, ponctualité garantie. <a href="/tarifs" class="text-lime-600 font-semibold hover:text-lime-700">Voir nos prix</a> ou demander un devis personnalisé gratuit, sans engagement.
+          </p>
+          <a
+            href="/contact"
+            class="inline-flex items-center space-x-2 bg-black text-white px-8 py-4 rounded-lg font-bold hover:bg-gray-800 transition-all"
+          >
+            <span>Nous contacter</span>
+            <ArrowRight class="h-5 w-5" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sécurité & Professionnalisme -->
+  <section class="py-20 bg-gradient-to-b from-gray-50 to-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-          Ce que Disent nos Clients à Bruxelles
+          Sécurité & Professionnalisme
         </h2>
         <div class="w-24 h-1 bg-lime-400 mx-auto mb-8"></div>
-        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-          Entreprises, écoles et événements nous font confiance pour l'autocar avec chauffeur au
-          départ de Bruxelles. Témoignages.
-        </p>
+      </div>
+
+      <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white rounded-xl p-6 shadow-lg border-l-4 border-lime-400">
+          <div class="flex items-start space-x-4">
+            <Shield class="h-8 w-8 text-lime-500 flex-shrink-0 mt-1" />
+            <div>
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Véhicules conformes LEZ Bruxelles</h3>
+              <p class="text-gray-600 leading-relaxed">
+                Flotte récente, zone basse émission. Véhicules entretenus et contrôlés pour votre sécurité.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow-lg border-l-4 border-lime-400">
+          <div class="flex items-start space-x-4">
+            <Award class="h-8 w-8 text-lime-500 flex-shrink-0 mt-1" />
+            <div>
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Chauffeurs professionnels</h3>
+              <p class="text-gray-600 leading-relaxed">
+                Recrutés selon des critères stricts. Ponctualité, discrétion et expertise pour vos trajets.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Couverture Belgique & Europe -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row gap-12 items-center">
+        <div class="flex-1">
+          <div class="inline-block bg-lime-400 p-3 rounded-lg mb-6">
+            <MapPin class="h-10 w-10 text-black" />
+          </div>
+          <h2 class="text-4xl font-bold mb-6 text-gray-900">
+            Couverture Belgique & Europe
+          </h2>
+          <p class="text-lg text-gray-700 leading-relaxed mb-4">
+            Prise en charge au départ de <strong>Bruxelles-Ville</strong>, Ixelles, Uccle, Schaerbeek, Etterbeek, Woluwe-Saint-Lambert, Woluwe-Saint-Pierre, Anderlecht, Zaventem, <strong>Quartier Européen</strong>, <strong>Avenue Louise</strong>, <strong>Gare du Midi</strong> et toutes les communes de la Région bruxelloise.
+          </p>
+          <p class="text-lg text-gray-700 leading-relaxed">
+            Belgique et Europe : excursions, transferts aéroport, séminaires, voyages scolaires. Chauffeurs multilingues.
+          </p>
+        </div>
+        <div class="flex-1 bg-gray-900 rounded-2xl p-8 text-white">
+          <h3 class="text-xl font-bold mb-4 text-lime-400">Zones desservies</h3>
+          <p class="text-gray-300">
+            Bruxelles-Capitale, Flandre, Wallonie, France, Pays-Bas, Luxembourg, Allemagne. Devis gratuit pour toute destination.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bloc confiance : chiffres + témoignages -->
+  <section class="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-gray-900 rounded-2xl p-8 md:p-12 text-white text-center mb-16">
+        <h2 class="text-3xl font-bold mb-8">Ils nous font confiance</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <div class="text-4xl font-bold text-lime-400 mb-2">16</div>
+            <p class="text-gray-300">Véhicules dans notre flotte</p>
+          </div>
+          <div>
+            <div class="text-4xl font-bold text-lime-400 mb-2">48h</div>
+            <p class="text-gray-300">Réponse garantie à votre devis</p>
+          </div>
+          <div>
+            <div class="text-4xl font-bold text-lime-400 mb-2">7j/7</div>
+            <p class="text-gray-300">Disponibilité de notre équipe</p>
+          </div>
+        </div>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <blockquote class="bg-gray-50 rounded-xl p-8 shadow-lg hover:shadow-xl transition-all relative">
+        <blockquote class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all border border-gray-100 relative">
           <div class="absolute top-6 right-6 opacity-10">
             <Quote class="h-16 w-16 text-lime-400" />
           </div>
@@ -522,21 +480,20 @@ const structuredData = {
             ))}
           </div>
           <p class="text-gray-700 leading-relaxed mb-6 relative z-10">
-            "Service impeccable pour notre voyage scolaire à Paris. Le chauffeur était ponctuel,
-            professionnel et très sympathique. Les enfants ont adoré le confort du bus avec le WiFi."
+            "Service impeccable pour notre voyage scolaire à Paris. Le chauffeur était ponctuel, professionnel. Les enfants ont adoré le confort du bus avec le WiFi."
           </p>
           <footer class="flex items-center">
             <div class="bg-lime-400 rounded-full h-12 w-12 flex items-center justify-center text-black font-bold text-lg">
               ML
             </div>
             <div class="ml-4">
-              <p class="font-bold text-gray-900">Marie Leclerc</p>
+              <p class="font-bold text-gray-900">Marie L.</p>
               <p class="text-sm text-gray-600">Directrice d'école</p>
             </div>
           </footer>
         </blockquote>
 
-        <blockquote class="bg-gray-50 rounded-xl p-8 shadow-lg hover:shadow-xl transition-all relative">
+        <blockquote class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all border border-gray-100 relative">
           <div class="absolute top-6 right-6 opacity-10">
             <Quote class="h-16 w-16 text-lime-400" />
           </div>
@@ -546,21 +503,20 @@ const structuredData = {
             ))}
           </div>
           <p class="text-gray-700 leading-relaxed mb-6 relative z-10">
-            "Nous avons loué un autocar 50 places pour notre séminaire d'entreprise. Tout était
-            parfait : véhicule moderne, climatisation efficace, et surtout une grande ponctualité."
+            "Autocar 50 places pour notre séminaire. Véhicule moderne, climatisation, ponctualité. Parfait."
           </p>
           <footer class="flex items-center">
             <div class="bg-lime-400 rounded-full h-12 w-12 flex items-center justify-center text-black font-bold text-lg">
               JD
             </div>
             <div class="ml-4">
-              <p class="font-bold text-gray-900">Jean Dupont</p>
+              <p class="font-bold text-gray-900">Jean D.</p>
               <p class="text-sm text-gray-600">Responsable RH</p>
             </div>
           </footer>
         </blockquote>
 
-        <blockquote class="bg-gray-50 rounded-xl p-8 shadow-lg hover:shadow-xl transition-all relative">
+        <blockquote class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all border border-gray-100 relative">
           <div class="absolute top-6 right-6 opacity-10">
             <Quote class="h-16 w-16 text-lime-400" />
           </div>
@@ -570,30 +526,74 @@ const structuredData = {
             ))}
           </div>
           <p class="text-gray-700 leading-relaxed mb-6 relative z-10">
-            "Excellent service pour le transport des invités de notre mariage. Le chauffeur a été
-            très arrangeant et le minibus était impeccable. Je recommande vivement !"
+            "Transport des invités de notre mariage. Chauffeur arrangeant, minibus impeccable. Je recommande !"
           </p>
           <footer class="flex items-center">
             <div class="bg-lime-400 rounded-full h-12 w-12 flex items-center justify-center text-black font-bold text-lg">
               SB
             </div>
             <div class="ml-4">
-              <p class="font-bold text-gray-900">Sophie Bernard</p>
+              <p class="font-bold text-gray-900">Sophie B.</p>
               <p class="text-sm text-gray-600">Particulier</p>
             </div>
           </footer>
         </blockquote>
       </div>
+    </div>
+  </section>
 
-      <div class="text-center mt-12">
+  <!-- FAQ Tarifs -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl font-bold mb-8 text-gray-900 text-center">
+        Questions fréquentes — Prix et devis autocar Bruxelles
+      </h2>
+      <div class="space-y-6">
+        {FAQ_ITEMS.map((item) => (
+          <div class="bg-gray-50 rounded-xl shadow border border-gray-100 overflow-hidden">
+            <h3 class="text-lg font-bold text-gray-900 px-6 py-4 bg-lime-50/50 border-b border-gray-200">
+              {item.q}
+            </h3>
+            <p class="text-gray-700 leading-relaxed px-6 py-4">
+              {item.a}
+            </p>
+          </div>
+        ))}
+      </div>
+      <div class="text-center mt-10">
+        <a
+          href="/tarifs"
+          class="inline-block text-lime-600 font-bold hover:text-lime-700"
+        >
+          Voir tous nos tarifs autocar Bruxelles
+        </a>
+        <span class="mx-2">|</span>
         <a
           href="/contact"
-          class="bg-black text-white px-10 py-4 rounded-lg text-lg font-bold hover:bg-gray-800 transition-all inline-flex items-center space-x-2"
+          class="inline-block text-lime-600 font-bold hover:text-lime-700"
         >
-          <span>Demander un devis gratuit — sans engagement</span>
-          <ArrowRight class="h-5 w-5" />
+          Obtenir un devis personnalisé gratuit
         </a>
       </div>
+    </div>
+  </section>
+
+  <!-- CTA final -->
+  <section class="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
+        Prêt à organiser votre transport de groupe ?
+      </h2>
+      <p class="text-lg text-gray-700 mb-10">
+        Devis gratuit sous 48h, sans engagement. Entreprises, événements, écoles : <a href="/blog" class="text-lime-600 font-semibold hover:text-lime-700">conseils transport groupe</a> sur notre blog.
+      </p>
+      <a
+        href="/contact"
+        class="inline-flex items-center space-x-2 bg-lime-400 text-black px-12 py-5 rounded-lg text-xl font-bold hover:bg-lime-300 transition-all transform hover:scale-105 shadow-xl"
+      >
+        <span>Obtenir mon devis personnalisé — gratuit et sans engagement</span>
+        <ArrowRight class="h-6 w-6" />
+      </a>
     </div>
   </section>
 </PageLayout>
