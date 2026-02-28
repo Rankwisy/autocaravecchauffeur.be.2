@@ -1,0 +1,17 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import HeaderAstro from '../components/HeaderAstro';
+import FooterAstro from '../components/FooterAstro';
+import WhatsAppWidget from '../components/WhatsAppWidget';
+import ScrollToTopAstro from '../components/ScrollToTopAstro';
+---
+
+<BaseLayout {...Astro.props}>
+  <ScrollToTopAstro client:load />
+  <HeaderAstro currentPath={Astro.url.pathname} client:visible />
+  <main class="flex-grow">
+    <slot />
+  </main>
+  <FooterAstro client:visible />
+  <WhatsAppWidget client:visible />
+</BaseLayout>

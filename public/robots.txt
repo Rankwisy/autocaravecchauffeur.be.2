@@ -6,7 +6,10 @@ Disallow: /api/
 Disallow: /*.json$
 
 # Sitemap location
-Sitemap: https://autocaravecchauffeur.be/sitemap.xml
+Sitemap: https://autocaravecchauffeur.be/sitemap-index.xml
+
+# llms.txt for AI crawlers (ChatGPT, Perplexity, etc.)
+# See: https://autocaravecchauffeur.be/llms.txt
 
 # Crawl-delay for specific bots
 User-agent: Googlebot

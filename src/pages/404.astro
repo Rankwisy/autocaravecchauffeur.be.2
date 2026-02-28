@@ -1,0 +1,81 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import { Home, ArrowRight, Search, MapPin } from 'lucide-react';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Page non trouvée - 404',
+  description: "La page que vous recherchez n'existe pas ou a été déplacée.",
+};
+---
+
+<PageLayout
+  title="404 - Page non trouvée | Autocar Bruxelles"
+  description="Page introuvable. Retrouvez la location d'autocar avec chauffeur à Bruxelles : services, tarifs, contact. Devis gratuit."
+  canonical="https://autocaravecchauffeur.be/404"
+  jsonLd={structuredData}
+  noindex={true}
+>
+  <section class="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white flex items-center justify-center py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="mb-8">
+        <div class="inline-flex items-center justify-center w-32 h-32 bg-lime-400/10 rounded-full mb-6">
+          <Search class="h-16 w-16 text-lime-400" />
+        </div>
+
+        <h1 class="text-8xl md:text-9xl font-bold mb-4 text-lime-400">404</h1>
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">Page non trouvée</h2>
+
+        <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+          Désolé, la page que vous recherchez n'existe pas ou a été déplacée. Retournez à
+          l'accueil pour découvrir nos services de transport de groupe.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <a
+          href="/"
+          class="bg-lime-400 text-black p-6 rounded-xl hover:bg-lime-300 transition-all group block"
+        >
+          <Home class="h-8 w-8 mx-auto mb-3 group-hover:scale-110 transition-transform" />
+          <h3 class="font-bold mb-2">Accueil</h3>
+          <p class="text-sm">Retour à la page d'accueil</p>
+        </a>
+
+        <a
+          href="/services"
+          class="bg-white/10 backdrop-blur-sm text-white p-6 rounded-xl hover:bg-white/20 transition-all group block"
+        >
+          <MapPin class="h-8 w-8 mx-auto mb-3 text-lime-400 group-hover:scale-110 transition-transform" />
+          <h3 class="font-bold mb-2">Services autocar et minibus Bruxelles</h3>
+          <p class="text-sm text-gray-300">Voir nos formules avec chauffeur</p>
+        </a>
+
+        <a
+          href="/contact"
+          class="bg-white/10 backdrop-blur-sm text-white p-6 rounded-xl hover:bg-white/20 transition-all group block"
+        >
+          <ArrowRight class="h-8 w-8 mx-auto mb-3 text-lime-400 group-hover:scale-110 transition-transform" />
+          <h3 class="font-bold mb-2">Devis gratuit</h3>
+          <p class="text-sm text-gray-300">Demander un devis — sans engagement</p>
+        </a>
+      </div>
+
+      <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8">
+        <h3 class="text-xl font-bold mb-4 text-lime-400">Besoin d'aide ?</h3>
+        <p class="text-gray-300 mb-4">
+          Notre équipe est disponible 7j/7 et 24h/24 pour répondre à vos questions et vous
+          guider.
+        </p>
+        <a
+          href="/contact"
+          class="bg-lime-400 text-black px-8 py-3 rounded-lg font-bold hover:bg-lime-300 transition-all inline-flex items-center space-x-2"
+        >
+          <span>Demander un devis gratuit — sans engagement</span>
+          <ArrowRight class="h-5 w-5" />
+        </a>
+      </div>
+    </div>
+  </section>
+</PageLayout>

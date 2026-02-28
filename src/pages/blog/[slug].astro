@@ -1,0 +1,192 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { fetchPostBySlug } from '../../lib/supabase-server';
+import { Calendar, Tag, ArrowLeft, Clock } from 'lucide-react';
+
+export const prerender = false;
+
+const { slug } = Astro.params;
+const post = slug ? await fetchPostBySlug(slug) : null;
+
+function formatDate(dateString: string | null): string {
+  if (!dateString) return '';
+  const date = new Date(dateString);
+  return date.toLocaleDateString('fr-FR', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+}
+
+function estimateReadingTime(content: string): string {
+  const wordsPerMinute = 200;
+  const wordCount = content.split(/\s+/).length;
+  const minutes = Math.ceil(wordCount / wordsPerMinute);
+  return `${minutes} min de lecture`;
+}
+
+function formatContent(content: string): string {
+  const escapeHtml = (s: string) =>
+    s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  const lines = content.split('\n');
+  return lines
+    .map((line) => {
+      if (line.startsWith('# ')) return `<h1 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900 mt-8">${escapeHtml(line.substring(2))}</h1>`;
+      if (line.startsWith('## ')) return `<h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900 mt-8">${escapeHtml(line.substring(3))}</h2>`;
+      if (line.startsWith('### ')) return `<h3 class="text-2xl md:text-3xl font-bold mb-3 text-gray-900 mt-6">${escapeHtml(line.substring(4))}</h3>`;
+      if (line.startsWith('**') && line.endsWith('**')) return `<p class="text-lg text-gray-700 leading-relaxed mb-4 font-bold">${escapeHtml(line.substring(2, line.length - 2))}</p>`;
+      if (line.startsWith('- ')) {
+        const inner = line.substring(2).replace(/\*\*(.+?)\*\*/g, '<strong class="font-bold text-gray-900">$1</strong>').replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, t, u) => `<a href="${u}" class="text-lime-600 underline hover:text-lime-700" target="_blank" rel="noopener noreferrer">${t}</a>`);
+        return `<li class="text-lg text-gray-700 leading-relaxed mb-2 ml-6">${inner}</li>`;
+      }
+      if (line.trim() === '') return '<div class="h-4"></div>';
+      const inner = line.replace(/\*\*(.+?)\*\*/g, '<strong class="font-bold text-gray-900">$1</strong>').replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, t, u) => `<a href="${u}" class="text-lime-600 underline hover:text-lime-700" target="_blank" rel="noopener noreferrer">${t}</a>`);
+      return `<p class="text-lg text-gray-700 leading-relaxed mb-4">${inner}</p>`;
+    })
+    .join('\n');
+}
+
+const canonicalUrl = post ? `https://autocaravecchauffeur.be/blog/${post.slug}` : 'https://autocaravecchauffeur.be/404';
+const seoTitle = post
+  ? (post.title.length > 42 ? post.title.slice(0, 39) + '…' : post.title) + ' | Autocar Bruxelles'
+  : '404 - Article non trouvé | Autocar Bruxelles';
+const seoDescription = post
+  ? post.excerpt.length > 155 ? post.excerpt.slice(0, 152) + '…' : post.excerpt
+  : "L'article que vous recherchez n'existe pas ou n'est plus disponible.";
+const structuredData = post
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: post.title,
+      description: post.excerpt,
+      image: post.featured_image_url || undefined,
+      author: { '@type': 'Organization', name: post.author },
+      publisher: { '@type': 'Organization', name: 'Autocaravecchauffeur' },
+      datePublished: post.published_at || undefined,
+    }
+  : { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Page non trouvée' };
+---
+
+{!slug || !post ? (
+  <PageLayout
+    title="404 - Article non trouvé | Autocar Bruxelles"
+    description="L'article que vous recherchez n'existe pas ou n'est plus disponible."
+    canonical="https://autocaravecchauffeur.be/404"
+    noindex={true}
+  >
+    <section class="min-h-screen bg-gray-50 flex items-center justify-center py-20">
+      <div class="text-center max-w-4xl mx-auto px-4">
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">Article non trouvé</h1>
+        <p class="text-xl text-gray-600 mb-8">
+          L'article que vous recherchez n'existe pas ou n'est plus disponible.
+        </p>
+        <a
+          href="/blog"
+          class="bg-lime-400 text-black px-8 py-3 rounded-lg font-bold hover:bg-lime-300 inline-flex items-center space-x-2 mx-auto"
+        >
+          <ArrowLeft class="h-5 w-5" />
+          <span>Retour au blog</span>
+        </a>
+      </div>
+    </section>
+  </PageLayout>
+) : (
+  <PageLayout
+    title={seoTitle.length > 60 ? seoTitle.slice(0, 57) + '…' : seoTitle}
+    description={seoDescription}
+    canonical={canonicalUrl}
+    ogType="article"
+    ogImage={post.featured_image_url || undefined}
+    jsonLd={structuredData}
+  >
+        <section class="bg-gradient-to-br from-black via-gray-900 to-black text-white py-12">
+          <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <a
+              href="/blog"
+              class="inline-flex items-center space-x-2 text-lime-400 hover:text-lime-300 transition-colors mb-8 group"
+            >
+              <ArrowLeft class="h-5 w-5 group-hover:-translate-x-1 transition-transform" />
+              <span class="font-semibold">Retour au blog</span>
+            </a>
+
+            <div class="flex flex-wrap items-center gap-4 text-sm text-gray-300 mb-6">
+              <div class="flex items-center space-x-2">
+                <Calendar class="h-4 w-4" />
+                <span>{formatDate(post.published_at)}</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <Tag class="h-4 w-4" />
+                <span>{post.author}</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <Clock class="h-4 w-4" />
+                <span>{estimateReadingTime(post.content)}</span>
+              </div>
+            </div>
+
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+              {post.title}
+            </h1>
+
+            {post.categories && post.categories.length > 0 && (
+              <div class="flex flex-wrap gap-2">
+                {post.categories.map((category) => (
+                  <span
+                    class="bg-lime-400 text-black px-4 py-1 rounded-full text-sm font-semibold"
+                  >
+                    {category.name}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+        </section>
+
+        {post.featured_image_url && (
+          <section class="relative h-96 md:h-[500px] overflow-hidden">
+            <img
+              src={post.featured_image_url}
+              alt={post.title}
+              class="w-full h-full object-cover"
+              width="1200"
+              height="500"
+              loading="eager"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+          </section>
+        )}
+
+        <article class="py-16 bg-white">
+          <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="prose prose-lg max-w-none">
+              <div class="text-xl text-gray-600 leading-relaxed mb-8 pb-8 border-b-2 border-gray-200">
+                {post.excerpt}
+              </div>
+              <div
+                class="blog-content"
+                set:html={formatContent(post.content)}
+              />
+            </div>
+          </div>
+        </article>
+
+        <section class="py-12 bg-gradient-to-b from-gray-50 to-white">
+          <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-lime-400 rounded-2xl p-8 md:p-12 text-center">
+              <h2 class="text-3xl md:text-4xl font-bold text-black mb-4">
+                Besoin de nos services ?
+              </h2>
+              <p class="text-xl text-gray-800 mb-8">
+                Contactez-nous pour un devis personnalisé et sans engagement
+              </p>
+              <a
+                href="/contact"
+                class="bg-black text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-800 transition-all transform hover:scale-105 shadow-lg inline-block"
+              >
+                Demander un devis gratuit — sans engagement
+              </a>
+            </div>
+          </div>
+        </section>
+      </PageLayout>
+)}

@@ -1,0 +1,47 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import ContactFormAstro from '../components/ContactFormAstro';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  mainEntity: {
+    '@type': 'TransportationService',
+    name: 'Autocaravecchauffeur',
+    address: { '@type': 'PostalAddress', addressLocality: 'Bruxelles', addressCountry: 'BE' },
+    availableLanguage: ['French', 'Dutch', 'English'],
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'Customer Service',
+      availableLanguage: ['French', 'Dutch', 'English'],
+      hoursAvailable: 'Mo-Su 00:00-23:59',
+    },
+  },
+};
+---
+
+<PageLayout
+  title="Devis Autocar Bruxelles | Contact Location Minibus Chauffeur"
+  description="Demandez votre devis gratuit d'autocar ou minibus avec chauffeur à Bruxelles. Équipe disponible 7j/7. Réponse sous 48h."
+  canonical="https://autocaravecchauffeur.be/contact"
+  jsonLd={structuredData}
+>
+  <section class="bg-gradient-to-br from-black via-gray-900 to-black text-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-5xl md:text-6xl font-bold mb-6">
+        Contact & Devis — Autocar Bruxelles
+      </h1>
+      <div class="w-24 h-1 bg-lime-400 mx-auto mb-6"></div>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+        Devis gratuit et sans engagement pour autocar ou minibus avec chauffeur à Bruxelles.
+        Réponse sous 48h. Équipe disponible 7j/7. Entreprises, écoles, événements.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-gradient-to-b from-white to-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ContactFormAstro client:load />
+    </div>
+  </section>
+</PageLayout>
