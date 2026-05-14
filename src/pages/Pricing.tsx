@@ -279,7 +279,7 @@ export default function Pricing() {
                   <ArrowRight className="h-5 w-5" />
                 </Link>
                 <a
-                  href="tel:+32123456789"
+                  href="tel:+32480206007"
                   className="bg-white text-black px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-100 transition-all inline-flex items-center justify-center space-x-2"
                 >
                   <Phone className="h-5 w-5" />

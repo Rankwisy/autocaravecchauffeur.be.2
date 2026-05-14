@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import { Mail, MapPin, Clock, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { Mail, MapPin, Clock, Send, CheckCircle, AlertCircle, Phone } from 'lucide-react';
 import SEO from '../components/SEO';
-import { WhatsAppButton } from '../components/WhatsAppWidget';
 
 export default function Contact() {
   const structuredData = {
@@ -113,10 +112,15 @@ export default function Contact() {
 
             <div className="bg-white rounded-xl shadow-lg p-8 border-t-4 border-lime-400 hover:shadow-2xl transition-all">
               <div className="bg-lime-400 p-4 rounded-lg w-fit mb-6">
-                <MapPin className="h-8 w-8 text-black" />
+                <Phone className="h-8 w-8 text-black" />
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-gray-900">Adresse</h3>
-              <p className="text-lg text-gray-700">Bruxelles, Belgique</p>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Téléphone</h3>
+              <a
+                href="tel:+32480206007"
+                className="text-lg text-gray-700 hover:text-lime-600 transition-colors break-all"
+              >
+                +32 480 20 60 07
+              </a>
             </div>
 
             <div className="bg-white rounded-xl shadow-lg p-8 border-t-4 border-lime-400 hover:shadow-2xl transition-all">
@@ -133,14 +137,14 @@ export default function Contact() {
           <div className="bg-gradient-to-br from-lime-400 to-lime-500 rounded-2xl shadow-2xl p-8 text-center">
             <h3 className="text-3xl font-bold mb-4 text-black">Besoin d'une réponse immédiate ?</h3>
             <p className="text-lg text-black mb-6">
-              Contactez-nous directement sur WhatsApp pour une assistance rapide
+              Appelez-nous directement ou envoyez-nous un email pour une assistance rapide.
             </p>
-            <WhatsAppButton
-              phoneNumber="32489001530"
-              label="Ouvrir WhatsApp"
-              message="Bonjour, j'aimerais obtenir plus d'informations sur vos services d'autocar avec chauffeur."
-              className="!bg-black !text-lime-400 hover:!bg-gray-900 hover:!text-lime-300"
-            />
+            <a
+              href="tel:+32480206007"
+              className="inline-flex items-center justify-center rounded-full bg-black px-10 py-4 text-lg font-bold text-lime-400 hover:bg-gray-900 hover:text-lime-300 transition-all"
+            >
+              Appeler +32 480 20 60 07
+            </a>
           </div>
 
           <div className="max-w-3xl mx-auto">
@@ -150,7 +154,7 @@ export default function Contact() {
                   Besoin d'informations ou de renseignements sur nos prestations ou notre société ?
                 </h2>
                 <p className="text-lg text-gray-600">
-                  Devis gratuit et sans engagement. Nous vous répondons sous 48h. Utilisez le formulaire ci-dessous ou contactez-nous par email / WhatsApp.
+                  Devis gratuit et sans engagement. Nous vous répondons sous 48h. Utilisez le formulaire ci-dessous ou contactez-nous par email ou par téléphone.
                 </p>
               </div>
 
