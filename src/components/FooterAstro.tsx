@@ -1,10 +1,7 @@
-import { Mail, MapPin, Clock } from 'lucide-react';
+import { Mail, MapPin, Clock, Phone } from 'lucide-react';
 
 export default function FooterAstro() {
   const currentYear = new Date().getFullYear();
-  const whatsappUrl =
-    'https://wa.me/32489001530?text=' +
-    encodeURIComponent("Bonjour, j'aimerais obtenir plus d'informations sur nos services d'autocar.");
 
   return (
     <footer className="bg-black text-white mt-20">
@@ -31,13 +28,12 @@ export default function FooterAstro() {
                 </a>
               </div>
               <div className="flex items-start space-x-3">
+                <Phone className="h-5 w-5 text-lime-400 mt-0.5 flex-shrink-0" />
                 <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-lime-400 transition-colors inline-flex items-center space-x-2"
+                  href="tel:+32480206007"
+                  className="text-gray-400 hover:text-lime-400 transition-colors"
                 >
-                  <span className="text-lime-400">+32 489 00 15 30</span>
+                  +32 480 20 60 07
                 </a>
               </div>
               <div className="flex items-start space-x-3">
