@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { Mail, Send, CheckCircle, AlertCircle } from 'lucide-react';
-import { WhatsAppButton } from './WhatsAppWidget';
+import { Mail, Send, CheckCircle, AlertCircle, Phone } from 'lucide-react';
 
 export default function ContactFormAstro() {
   const [formData, setFormData] = useState({
@@ -87,14 +86,14 @@ export default function ContactFormAstro() {
       <div className="bg-gradient-to-br from-lime-400 to-lime-500 rounded-2xl shadow-2xl p-8 text-center mb-16">
         <h3 className="text-3xl font-bold mb-4 text-black">Besoin d'une réponse immédiate ?</h3>
         <p className="text-lg text-black mb-6">
-          Contactez-nous directement sur WhatsApp pour une assistance rapide
+          Appelez-nous directement ou envoyez-nous un email pour une assistance rapide.
         </p>
-        <WhatsAppButton
-          phoneNumber="32489001530"
-          label="Ouvrir WhatsApp"
-          message="Bonjour, j'aimerais obtenir plus d'informations sur vos services d'autocar avec chauffeur."
-          className="!bg-black !text-lime-400 hover:!bg-gray-900 hover:!text-lime-300"
-        />
+        <a
+          href="tel:+32480206007"
+          className="inline-flex items-center justify-center rounded-full bg-black px-10 py-4 text-lg font-bold text-lime-400 hover:bg-gray-900 hover:text-lime-300 transition-all"
+        >
+          Appeler +32 480 20 60 07
+        </a>
       </div>
 
       <div className="max-w-3xl mx-auto">

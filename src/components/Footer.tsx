@@ -1,6 +1,5 @@
-import { Mail, MapPin, Clock } from 'lucide-react';
+import { Mail, MapPin, Clock, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { WhatsAppLink } from './WhatsAppWidget';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -28,12 +27,14 @@ export default function Footer() {
                   info@autocaravecchauffeur.be
                 </a>
               </div>
-              <div className="flex items-start">
-                <WhatsAppLink
-                  phoneNumber="32489001530"
-                  label="+32 489 00 15 30"
-                  message="Bonjour, j'aimerais obtenir plus d'informations sur vos services d'autocar."
-                />
+              <div className="flex items-start space-x-3">
+                <Phone className="h-5 w-5 text-lime-400 mt-0.5 flex-shrink-0" />
+                <a
+                  href="tel:+32480206007"
+                  className="text-gray-400 hover:text-lime-400 transition-colors"
+                >
+                  +32 480 20 60 07
+                </a>
               </div>
               <div className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-lime-400 mt-0.5 flex-shrink-0" />
